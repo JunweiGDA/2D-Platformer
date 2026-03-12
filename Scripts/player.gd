@@ -9,6 +9,7 @@ extends CharacterBody2D
 var move_input : float 
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var anim : AnimationPlayer =  $AnimationPlayer
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -17,7 +18,7 @@ func _physics_process(delta):
 	move_input = Input.get_axis("move_left", "move_right")
 	
 	if move_input != 0: 
-		velocity.x = lerp("velocity.x", move_input * move_speed, acceleration * delta)
+		velocity.x = lerp(velocity.x, move_input * move_speed, acceleration * delta)
 	else:
 		velocity.x = lerp(velocity.x, 0.0,  braking * delta)
 	
@@ -27,6 +28,15 @@ func _physics_process(delta):
 	move_and_slide() 
 
 func _process(delta): 
-	
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x > 0
+
+	_manage_animation()
+
+func _manage_animation ():
+	if not is_on_floor():
+		anim.play("jump")
+	elif move_input  != 0: 
+		anim.play("move")
+	else:
+		anim.play("idle")

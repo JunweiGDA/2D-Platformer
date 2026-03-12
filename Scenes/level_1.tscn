@@ -16,8 +16,3 @@ tile_map_data = PackedByteArray("AAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAA
 tile_set = ExtResource("1_vk57k")
 
 [node name="Player" parent="." instance=ExtResource("3_xfk5q")]
-move_speed = null
-acceleration = null
-braking = null
-gravity = null
-jump_force = null
