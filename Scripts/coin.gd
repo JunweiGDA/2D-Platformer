@@ -18,7 +18,7 @@ func _physics_process(_delta):
 
 
 func _on_body_entered(body):
-	if not body.is_in_group("player"):
+	if not body.is_in_group("Player"):
 		return
 	
 	body.increase_score(1)

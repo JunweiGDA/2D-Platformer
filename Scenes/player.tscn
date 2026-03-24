@@ -82,6 +82,12 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
+move_speed = null
+acceleration = null
+braking = null
+gravity = null
+jump_force = null
+health = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_v0iea")
