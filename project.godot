@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="2D Platformer"
-run/main_scene="uid://dv0g1jn3n7ini"
+run/main_scene="uid://ds75lvm8eqf4l"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayStats="*res://Scripts/play_stats.gd"
 
 [input]
 

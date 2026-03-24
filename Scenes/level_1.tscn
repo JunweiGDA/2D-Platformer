@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://ds75lvm8eqf4l"]
+[gd_scene load_steps=7 format=4 uid="uid://ds75lvm8eqf4l"]
 
 [ext_resource type="Texture2D" uid="uid://dhtvwtc1oohln" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_8ffim"]
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="1_vk57k"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="4_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_6444e"]
+[ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="6_evi0p"]
 
 [node name="Main" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -16,3 +19,26 @@ tile_map_data = PackedByteArray("AAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAA
 tile_set = ExtResource("1_vk57k")
 
 [node name="Player" parent="." instance=ExtResource("3_xfk5q")]
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="coin" parent="Coins" instance=ExtResource("5_6444e")]
+position = Vector2(67, 18)
+
+[node name="coin2" parent="Coins" instance=ExtResource("5_6444e")]
+position = Vector2(196, -9)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_7p6j4")]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_7p6j4")]
+position = Vector2(183, -5)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_7p6j4")]
+position = Vector2(337, -22)
+move_direction = Vector2(0, -80)
+move_speed = 30.0
+
+[node name="EndFlag" parent="." instance=ExtResource("6_evi0p")]
+position = Vector2(475, -33)
