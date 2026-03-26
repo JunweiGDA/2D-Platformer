@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="4_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="6_evi0p"]
+[ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_xrdnt"]
 
 [node name="Main" type="Node2D" unique_id=672225398]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -15,26 +16,31 @@ metadata/_edit_horizontal_guides_ = [661.0]
 script = ExtResource("1_lsmp6")
 
 [node name="BackGroundSprites" type="Sprite2D" parent="Background" unique_id=255265265]
+modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(0, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
 [node name="BackGroundSprites4" type="Sprite2D" parent="Background" unique_id=353246412]
+modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(-512, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
 [node name="BackGroundSprites5" type="Sprite2D" parent="Background" unique_id=1264431031]
+modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(-1024, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
 [node name="BackGroundSprites2" type="Sprite2D" parent="Background" unique_id=928781339]
+modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(512, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
 [node name="BackGroundSprites3" type="Sprite2D" parent="Background" unique_id=1181136873]
+modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(1024, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
@@ -73,4 +79,4 @@ move_speed = 30.0
 
 [node name="EndFlag" parent="." unique_id=1341296351 instance=ExtResource("6_evi0p")]
 position = Vector2(475, -33)
-scene_to_load = ExtResource("3_xfk5q")
+scene_to_load = ExtResource("8_xrdnt")

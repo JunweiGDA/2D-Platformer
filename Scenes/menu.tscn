@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ba2bdev3y1o0i"]
+
+[ext_resource type="Texture2D" uid="uid://dhtvwtc1oohln" path="res://Godot 2D Platformer - Assets/Sprites/Backgrounds/backgroundForest.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://dm6pgn1uis713" path="res://Scripts/menu.gd" id="1_xhh6f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xhh6f"]
+font_size = 48
+font_color = Color(1, 0.75686276, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.45882353)
+
+[node name="Menu" type="Control" unique_id=1091148818]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhh6f")
+
+[node name="Background" type="TextureRect" parent="." unique_id=334320393]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -237.0
+offset_right = 1153.0
+offset_bottom = 1138.0
+texture = ExtResource("1_1rerr")
+expand_mode = 4
+
+[node name="Title" type="Label" parent="." unique_id=825833503]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.53000003
+anchor_right = 0.5
+anchor_bottom = 0.53000003
+offset_left = -235.0
+offset_top = -51.440033
+offset_right = 235.0
+offset_bottom = 51.559967
+grow_horizontal = 2
+grow_vertical = 2
+text = "2d Platformer Game"
+label_settings = SubResource("LabelSettings_xhh6f")
+
+[node name="PlayButton" type="Button" parent="." unique_id=381732686]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.716
+anchor_right = 0.49800003
+anchor_bottom = 0.716
+offset_left = -104.696045
+offset_top = -43.968018
+offset_right = 111.303955
+offset_bottom = 39.531982
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="." unique_id=269244419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.716
+anchor_right = 0.49800003
+anchor_bottom = 0.716
+offset_left = -107.696045
+offset_top = 66.03198
+offset_right = 112.303955
+offset_bottom = 149.53198
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
