@@ -78,7 +78,7 @@ move_direction = Vector2(0, -80)
 move_speed = 30.0
 
 [node name="Enemy4" parent="Enemies" unique_id=477826721 instance=ExtResource("6_ait6c")]
-position = Vector2(173, -72)
+position = Vector2(172, -88)
 move_direction = Vector2(300, 0)
 move_speed = 35.0
 
