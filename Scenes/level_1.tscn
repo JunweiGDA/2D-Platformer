@@ -68,14 +68,16 @@ position = Vector2(291, -10)
 [node name="Enemies" type="Node" parent="." unique_id=78275842]
 
 [node name="Enemy" parent="Enemies" unique_id=733885956 instance=ExtResource("4_7p6j4")]
+move_speed = 50.0
 
 [node name="Enemy2" parent="Enemies" unique_id=49059631 instance=ExtResource("4_7p6j4")]
-position = Vector2(183, -5)
+position = Vector2(183, -20)
+move_speed = 50.0
 
 [node name="Enemy3" parent="Enemies" unique_id=949665028 instance=ExtResource("4_7p6j4")]
 position = Vector2(337, -22)
 move_direction = Vector2(0, -80)
-move_speed = 30.0
+move_speed = 55.0
 
 [node name="EndFlag" parent="." unique_id=1341296351 instance=ExtResource("6_evi0p")]
 position = Vector2(475, -33)
