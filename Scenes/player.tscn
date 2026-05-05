@@ -1,121 +1,145 @@
-[gd_scene load_steps=9 format=4 uid="uid://dv0g1jn3n7ini"]
+[gd_scene load_steps=14 format=3 uid="uid://dv0g1jn3n7ini"]
 
-[ext_resource type="Script" uid="uid://bd5irt7mg6nfy" path="res://Scripts/background_parallax.gd" id="1_8erm5"]
-[ext_resource type="Texture2D" uid="uid://fdg02gkhp45i" path="res://Sprites/Backgrounds/backgroundDesert.png" id="2_f1ek2"]
-[ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="3_tx1dd"]
-[ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="4_gymyn"]
-[ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="5_8erm5"]
-[ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="6_ukyrk"]
-[ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="7_7dp3o"]
-[ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="8_h4iuc"]
+[ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dt7graggwlrkv" path="res://Sprites/Characters/character_0000.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://b6mgpkujscws5" path="res://Sprites/Characters/character_0001.png" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://cva4i4q883bsl" path="res://Scripts/camera_shake.gd" id="3_x3wgy"]
+[ext_resource type="Script" uid="uid://rb1wa275ui0y" path="res://Scripts/canvas_ui.gd" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://c75tyyo6x3n37" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
 
-[node name="Main" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [661.0]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
+radius = 11.0
+height = 24.0
 
-[node name="Background" type="Node2D" parent="."]
-script = ExtResource("1_8erm5")
+[sub_resource type="Animation" id="Animation_fkybt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_v0iea")]
+}
 
-[node name="BackGroundSprites" type="Sprite2D" parent="Background"]
-modulate = Color(1, 1, 0.87058824, 1)
-position = Vector2(1031, -61)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_f1ek2")
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "idle "
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_v0iea")]
+}
 
-[node name="BackGroundSprites4" type="Sprite2D" parent="Background"]
-modulate = Color(1, 1, 0.87058824, 1)
-position = Vector2(519, -61)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_f1ek2")
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "jump"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6t5aa")]
+}
 
-[node name="BackGroundSprites5" type="Sprite2D" parent="Background"]
-modulate = Color(1, 1, 0.87058824, 1)
-position = Vector2(7, -61)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_f1ek2")
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "move"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_6t5aa"), ExtResource("1_v0iea")]
+}
 
-[node name="BackGroundSprites2" type="Sprite2D" parent="Background"]
-modulate = Color(1, 1, 0.87058824, 1)
-position = Vector2(1543, -61)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_f1ek2")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3smsa"]
+_data = {
+&"RESET": SubResource("Animation_fkybt"),
+&"idle ": SubResource("Animation_vgqql"),
+&"jump": SubResource("Animation_6t5aa"),
+&"move": SubResource("Animation_x3wgy")
+}
 
-[node name="BackGroundSprites3" type="Sprite2D" parent="Background"]
-modulate = Color(1, 1, 0.87058824, 1)
-position = Vector2(2055, -61)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_f1ek2")
+[sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
+font_size = 38
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.48235294)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAEAAAADAAYAAAABAAIAAAADAAYAAAABAAMAAAADAAYAAAABAAQAAAADAAcAAAAAAAQAAAACAAcAAAD//wQAAAACAAcAAAD+/wQAAAABAAcAAAD+/wMAAAABAAYAAAD+/wIAAAABAAYAAAD+/wEAAAABAAYAAAD//wEAAAACAAYAAAAAAAEAAAACAAYAAAAAAAIAAAACAAYAAAAAAAMAAAACAAYAAAD//wMAAAACAAYAAAD//wIAAAACAAYAAAAGAAEAAAAAAAIAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAcAAAAJAAAAAAABAAYAAAAJAP//AAABAAIAAAAKAP//AAACAAMAAAAKAAAAAAACAAYAAAAKAAEAAAACAAYAAAALAAAAAAADAAYAAAALAAEAAAADAAYAAAALAAIAAAADAAYAAAALAAMAAAADAAYAAAALAAQAAAADAAYAAAALAAUAAAADAAYAAAALAAYAAAADAAcAAAAKAAYAAAACAAcAAAAKAAUAAAACAAYAAAAJAAUAAAABAAYAAAAJAAQAAAABAAYAAAAJAAMAAAABAAYAAAAJAAIAAAABAAYAAAAJAAEAAAABAAYAAAAKAAIAAAACAAYAAAAKAAMAAAACAAYAAAAKAAQAAAACAAYAAAAJAAYAAAABAAcAAAANAP//AAAAAAMAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAAAAAYAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAAAAYAAAANAAYAAAAAAAcAAAARAAEAAAAAAAMAAAARAAIAAAAAAAYAAAARAAMAAAAAAAYAAAARAAQAAAAAAAYAAAARAAUAAAAAAAYAAAARAAYAAAAAAAcAAAAUAP//AAAAAAMAAAAUAAAAAAAAAAYAAAAUAAEAAAAAAAYAAAAUAAIAAAAAAAYAAAAUAAMAAAAAAAYAAAAUAAYAAAAAAAcAAAAUAAUAAAAAAAYAAAAUAAQAAAAAAAYAAAAYAP//AAAAAAMAAAAYAAAAAAABAAYAAAAZAAAAAAACAAMAAAAZAAEAAAACAAYAAAAZAAIAAAACAAYAAAAYAAIAAAABAAYAAAAYAAMAAAABAAYAAAAYAAQAAAABAAYAAAAYAAUAAAABAAYAAAAYAAEAAAABAAYAAAAZAAMAAAACAAYAAAAZAAQAAAACAAYAAAAZAAUAAAACAAYAAAAZAAYAAAACAAcAAAAYAAYAAAABAAcAAAAbAAAAAAACAAMAAAAcAAAAAAADAAMAAAAcAAEAAAADAAYAAAAcAAIAAAADAAYAAAAcAAMAAAADAAYAAAAcAAQAAAADAAYAAAAcAAUAAAADAAYAAAAcAAYAAAADAAcAAAAbAAYAAAACAAcAAAAbAAUAAAACAAYAAAAbAAQAAAACAAYAAAAbAAMAAAACAAYAAAAbAAIAAAACAAYAAAAbAAEAAAACAAYAAAAaAAAAAAACAAMAAAAaAAEAAAACAAYAAAAaAAIAAAACAAYAAAAaAAMAAAACAAYAAAAaAAQAAAACAAYAAAAaAAUAAAACAAYAAAAaAAYAAAACAAcAAAAeAP7/AAABAAMAAAAfAP7/AAACAAMAAAAgAP7/AAACAAMAAAAhAP7/AAACAAMAAAAiAP7/AAADAAMAAAAeAP//AAABAAYAAAAfAP//AAACAAYAAAAgAP//AAACAAYAAAAhAP//AAACAAYAAAAiAP//AAADAAYAAAAiAAAAAAADAAcAAAAhAAAAAAACAAcAAAAgAAAAAAACAAcAAAAfAAAAAAACAAcAAAAeAAAAAAABAAcAAAABAAAAAAADAAMAAAALAP//AAADAAMAAAAtAAMAAAADAAAAAAAsAAMAAAACAAAAAAArAAMAAAACAAAAAAAqAAMAAAACAAAAAAApAAMAAAACAAAAAAAoAAMAAAACAAAAAAAnAAMAAAACAAAAAAAmAAMAAAAAAAAAAAA5AAEAAAACAAAAAAA4AAEAAAACAAAAAAA3AAEAAAACAAAAAAA2AAEAAAACAAAAAAA1AAEAAAACAAAAAAA0AAEAAAACAAAAAAAzAAEAAAACAAAAAAAyAAEAAAACAAAAAABAAAEAAAADAAAAAAA/AAEAAAACAAAAAAA+AAEAAAACAAAAAAA9AAEAAAACAAAAAAA8AAEAAAACAAAAAAA7AAEAAAACAAAAAAA6AAEAAAACAAAAAABMAAEAAAADAAAAAABLAAEAAAACAAAAAABKAAEAAAACAAAAAABJAAEAAAACAAAAAABIAAEAAAACAAAAAABHAAEAAAACAAAAAABGAAEAAAACAAAAAABFAAEAAAABAAAAAABTAAIAAAACAAAAAABUAAIAAAACAAAAAABVAAIAAAACAAAAAABWAAIAAAACAAAAAABXAAIAAAACAAAAAABYAAIAAAACAAAAAABZAAIAAAACAAAAAABaAAIAAAACAAAAAABbAAIAAAACAAAAAABcAAIAAAACAAAAAABdAAIAAAACAAAAAABeAAIAAAACAAAAAABfAAIAAAACAAAAAABgAAIAAAACAAAAAABhAAIAAAADAAAAAAAxAAEAAAABAAAAAABSAAIAAAABAAAAAAA=")
-tile_set = ExtResource("3_tx1dd")
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_cvnsp")
 
-[node name="Player" parent="." instance=ExtResource("8_h4iuc")]
-position = Vector2(674, 42)
-gravity = 500.0
-script = ExtResource("5_8erm5")
-move_speed = 100.0
-acceleration = 50.0
-braking = 20.0
-gravity = 500.0
-jump_force = 200.0
-health = 3
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_v0iea")
+offset = Vector2(0, -12)
+flip_h = true
 
-[node name="Coins" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_v0iea")
 
-[node name="coin6" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(786, 22)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -24)
+zoom = Vector2(3, 3)
+script = ExtResource("3_x3wgy")
 
-[node name="coin" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(67, 18)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3smsa")
+}
 
-[node name="coin2" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(181, -10)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="coin3" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(387, 7)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_fkybt")
 
-[node name="coin4" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(290, -9)
+[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 4.0
+offset_right = 478.0
+offset_bottom = 84.0
 
-[node name="coin5" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(802, 22)
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
 
-[node name="coin7" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(818, 22)
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
 
-[node name="coin8" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(835, 22)
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
 
-[node name="coin9" parent="Coins" instance=ExtResource("4_gymyn")]
-position = Vector2(851, 22)
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("8_h4iuc")]
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("8_h4iuc")]
-position = Vector2(231, -11)
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource("8_h4iuc")]
-position = Vector2(519, -46)
-move_direction = Vector2(0, -80)
-move_speed = 30.0
-
-[node name="Enemy3" parent="Enemies/Enemy3" instance=ExtResource("8_h4iuc")]
-position = Vector2(210, 5)
-move_direction = Vector2(250, 0)
-move_speed = 700.0
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource("8_h4iuc")]
-position = Vector2(172, -91)
-move_direction = Vector2(300, 0)
-move_speed = 200.0
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource("8_h4iuc")]
-position = Vector2(1446, -22)
-move_direction = Vector2(40, 0)
-move_speed = 80.0
-
-[node name="EndFlag" parent="." instance=ExtResource("6_ukyrk")]
-position = Vector2(1510, 31)
-scene_to_load = ExtResource("7_7dp3o")
+[node name="ScoreText" type="Label" parent="CanvasLayer"]
+offset_left = 34.0
+offset_top = 92.0
+offset_right = 261.0
+offset_bottom = 142.0
+text = "Score: 500"
+label_settings = SubResource("LabelSettings_vgqql")
