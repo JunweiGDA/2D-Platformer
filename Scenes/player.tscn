@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dv0g1jn3n7ini"]
+[gd_scene format=4 uid="uid://dv0g1jn3n7ini"]
 
 [ext_resource type="Script" uid="uid://bd5irt7mg6nfy" path="res://Scripts/background_parallax.gd" id="1_8erm5"]
 [ext_resource type="Texture2D" uid="uid://fdg02gkhp45i" path="res://Sprites/Backgrounds/backgroundDesert.png" id="2_f1ek2"]
