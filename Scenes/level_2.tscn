@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c8ta1wr1gs2vo"]
 
 [ext_resource type="Script" uid="uid://bd5irt7mg6nfy" path="res://Scripts/background_parallax.gd" id="1_055b2"]
-[ext_resource type="Texture2D" uid="uid://fdg02gkhp45i" path="res://Sprites/Backgrounds/backgroundDesert.png" id="2_055b2"]
+[ext_resource type="Texture2D" uid="uid://fdg02gkhp45i" path="res://Godot 2D Platformer - Assets/Sprites/Backgrounds/backgroundDesert.png" id="2_055b2"]
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="3_uhnj4"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_42uki"]
 [ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_t7v2y"]
@@ -96,7 +96,7 @@ move_speed = 30.0
 [node name="Enemy3" parent="Enemies/Enemy3" unique_id=124569529 instance=ExtResource("6_ait6c")]
 position = Vector2(210, 5)
 move_direction = Vector2(250, 0)
-move_speed = 700.0
+move_speed = 400.0
 
 [node name="Enemy4" parent="Enemies" unique_id=477826721 instance=ExtResource("6_ait6c")]
 position = Vector2(172, -91)
