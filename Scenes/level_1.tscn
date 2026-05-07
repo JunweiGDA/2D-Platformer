@@ -56,13 +56,13 @@ tile_map_data = PackedByteArray("AAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAA
 tile_set = ExtResource("1_vk57k")
 
 [node name="Player" parent="." unique_id=2035791093 instance=ExtResource("3_xfk5q")]
-position = Vector2(4, 0)
+position = Vector2(-30, -2)
 
 [node name="DoubleJumpUI" type="CanvasLayer" parent="Player" unique_id=93959561]
 
 [node name="Label" type="Label" parent="Player/DoubleJumpUI" unique_id=1065607230]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 221.0
+offset_bottom = 25.0
 text = "Double Jump need 5 coins"
 label_settings = SubResource("LabelSettings_chwpn")
 

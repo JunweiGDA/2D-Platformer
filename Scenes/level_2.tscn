@@ -1,13 +1,15 @@
 [gd_scene format=4 uid="uid://c8ta1wr1gs2vo"]
 
 [ext_resource type="Script" uid="uid://bd5irt7mg6nfy" path="res://Scripts/background_parallax.gd" id="1_055b2"]
-[ext_resource type="Texture2D" uid="uid://fdg02gkhp45i" path="res://Godot 2D Platformer - Assets/Sprites/Backgrounds/backgroundDesert.png" id="2_055b2"]
+[ext_resource type="Texture2D" uid="uid://fdg02gkhp45i" path="res://Sprites/Backgrounds/backgroundDesert.png" id="2_055b2"]
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="3_uhnj4"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_42uki"]
 [ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="6_ait6c"]
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_vcilj"]
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="8_2mgoq"]
+[ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_uhnj4"]
+[ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_42uki"]
 
 [node name="Main" type="Node2D" unique_id=655947746]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -50,7 +52,7 @@ tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAACAAMAAAAAAAAAAAACAAM
 tile_set = ExtResource("3_uhnj4")
 
 [node name="Player" parent="." unique_id=754337358 instance=ExtResource("4_42uki")]
-position = Vector2(674, 42)
+position = Vector2(627, 41)
 
 [node name="Coins" type="Node" parent="." unique_id=1590213818]
 
@@ -111,3 +113,19 @@ move_speed = 80.0
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_vcilj")]
 position = Vector2(1510, 31)
 scene_to_load = ExtResource("8_2mgoq")
+
+[node name="Spike" parent="." unique_id=1636188053 instance=ExtResource("9_uhnj4")]
+position = Vector2(919, 6)
+
+[node name="Spike2" parent="." unique_id=1039150062 instance=ExtResource("9_uhnj4")]
+position = Vector2(937, 6)
+
+[node name="Spike3" parent="." unique_id=1039868712 instance=ExtResource("9_uhnj4")]
+position = Vector2(1174, 6)
+
+[node name="Spike4" parent="." unique_id=2141778261 instance=ExtResource("9_uhnj4")]
+position = Vector2(1158, 6)
+damage = 50
+
+[node name="LuckyBlock" parent="." unique_id=1912453121 instance=ExtResource("10_42uki")]
+position = Vector2(672, 0)
