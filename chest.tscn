@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgkubn3kdtjoi"]
+[gd_scene format=3 uid="uid://bgkubn3kdtjoi"]
 
 [ext_resource type="Texture2D" uid="uid://bt6p8j6m5qxv" path="res://Sprites/Objects/chest-Sheet.png" id="1_twpm2"]
 
