@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ds75lvm8eqf4l"]
+[gd_scene format=4 uid="uid://cs7bydaqonqnf"]
 
 [ext_resource type="Texture2D" uid="uid://dhtvwtc1oohln" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_8ffim"]
 [ext_resource type="Script" uid="uid://bd5irt7mg6nfy" path="res://Scripts/background_parallax.gd" id="1_lsmp6"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="4_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="6_evi0p"]
-[ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_xrdnt"]
+[ext_resource type="PackedScene" path="res://Scenes/level_2.tscn" id="8_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_wrinw"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_chwpn"]
 
@@ -15,52 +15,56 @@
 font_color = Color(1, 0.12156863, 0.039215688, 1)
 outline_color = Color(1, 0, 0.06666667, 1)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=178880348]
 metadata/_edit_horizontal_guides_ = [661.0]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=1682357931]
 script = ExtResource("1_lsmp6")
 
-[node name="BackGroundSprites" type="Sprite2D" parent="Background"]
+[node name="BackGroundSprites" type="Sprite2D" parent="Background" unique_id=739577638]
 modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(0, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
-[node name="BackGroundSprites4" type="Sprite2D" parent="Background"]
+[node name="BackGroundSprites4" type="Sprite2D" parent="Background" unique_id=759579944]
 modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(-512, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
-[node name="BackGroundSprites5" type="Sprite2D" parent="Background"]
+[node name="BackGroundSprites5" type="Sprite2D" parent="Background" unique_id=160345070]
 modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(-1024, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
-[node name="BackGroundSprites2" type="Sprite2D" parent="Background"]
+[node name="BackGroundSprites2" type="Sprite2D" parent="Background" unique_id=191868989]
 modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(512, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
-[node name="BackGroundSprites3" type="Sprite2D" parent="Background"]
+[node name="BackGroundSprites3" type="Sprite2D" parent="Background" unique_id=1207081809]
 modulate = Color(1, 1, 0.8901961, 1)
 position = Vector2(1024, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_8ffim")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1783609894]
 tile_map_data = PackedByteArray("AAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAAAAAAAAAAAAAACAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAD9/wEAAAACAAcAAAD9/wIAAAACAAcAAAD9/wMAAAACAAcAAAD9/wQAAAACAAcAAAD9/wUAAAACAAcAAAD+/wUAAAACAAcAAAD+/wQAAAACAAcAAAD+/wMAAAACAAcAAAD+/wIAAAACAAcAAAD+/wEAAAACAAcAAAD//wEAAAACAAcAAAAAAAEAAAACAAcAAAABAAEAAAACAAcAAAACAAEAAAACAAcAAAACAAIAAAACAAcAAAACAAMAAAACAAcAAAACAAQAAAACAAcAAAACAAUAAAACAAcAAAABAAUAAAACAAcAAAAAAAUAAAACAAcAAAD//wUAAAACAAcAAAD//wQAAAACAAcAAAD//wMAAAACAAcAAAD//wIAAAACAAcAAAAAAAIAAAACAAcAAAABAAIAAAACAAcAAAABAAMAAAACAAcAAAAAAAQAAAACAAcAAAAAAAMAAAACAAcAAAABAAQAAAACAAcAAAAGAAEAAAAAAAAAAAAGAAIAAAACAAcAAAAGAAMAAAACAAcAAAAGAAQAAAACAAcAAAARAAEAAAABAAAAAAAUAP//AAABAAAAAAAbAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAABAAYAAAAJAAMAAAABAAYAAAAJAAQAAAABAAYAAAAMAAAAAAABAAYAAAAMAAEAAAABAAYAAAAMAAIAAAABAAYAAAAMAAMAAAABAAYAAAANAAAAAAACAAcAAAANAAEAAAACAAcAAAANAAIAAAACAAcAAAANAAMAAAACAAcAAAAOAAAAAAACAAcAAAAOAAEAAAACAAcAAAAOAAIAAAACAAcAAAAOAAMAAAACAAcAAAARAAIAAAABAAYAAAARAAMAAAABAAYAAAARAAQAAAABAAYAAAARAAUAAAABAAYAAAAUAAAAAAABAAYAAAAUAAEAAAABAAYAAAAUAAIAAAABAAYAAAAXAAAAAAABAAYAAAAXAAEAAAABAAYAAAAXAAIAAAABAAYAAAAbAAEAAAABAAYAAAAbAAIAAAABAAYAAAAbAAMAAAABAAYAAAAbAAQAAAABAAYAAAAbAAUAAAABAAYAAAAbAAYAAAABAAYAAAANAP//AAACAAAAAAAMAP//AAACAAAAAAAOAP//AAACAAAAAAAjAAMAAAACAAcAAAAjAAQAAAACAAcAAAAjAAUAAAACAAcAAAAjAAYAAAACAAcAAAAcAAYAAAACAAcAAAAdAAYAAAACAAcAAAAeAAYAAAACAAcAAAAfAAYAAAACAAcAAAAgAAYAAAACAAcAAAAhAAYAAAACAAcAAAAiAAYAAAACAAcAAAAiAAUAAAACAAcAAAAiAAQAAAACAAcAAAAiAAMAAAACAAcAAAAgAAMAAAACAAcAAAAhAAQAAAACAAcAAAAhAAMAAAACAAcAAAAhAAUAAAACAAcAAAAgAAUAAAACAAcAAAAgAAQAAAACAAcAAAAlAAIAAAABAAUAAAAlAAMAAAABAAYAAAAlAAQAAAABAAcAAAAoAAUAAAABAAUAAAAoAAYAAAABAAYAAAAoAAcAAAABAAcAAAAqAAkAAAABAAUAAAArAAkAAAADAAUAAAAtAAsAAAABAAUAAAAuAAsAAAACAAUAAAAvAAsAAAADAAUAAAAeAAMAAAACAAcAAAAeAAQAAAACAAcAAAAeAAUAAAACAAcAAAAfAAUAAAACAAcAAAAfAAQAAAACAAcAAAAfAAMAAAACAAcAAAAeAAAAAAACAAAAAAAfAAAAAAACAAAAAAAgAAAAAAABAAAAAAAhAAAAAAACAAAAAAAiAAAAAAACAAAAAAAjAAAAAAACAAAAAAAeAAEAAAACAAcAAAAfAAEAAAACAAcAAAAgAAEAAAACAAcAAAAhAAEAAAACAAcAAAAiAAEAAAACAAcAAAAjAAEAAAACAAcAAAAjAAIAAAACAAcAAAAiAAIAAAACAAcAAAAhAAIAAAACAAcAAAAgAAIAAAACAAcAAAAfAAIAAAACAAcAAAAeAAIAAAACAAcAAAAcAAUAAAACAAcAAAAcAAAAAAACAAAAAAAcAAEAAAACAAcAAAAcAAIAAAACAAcAAAAcAAMAAAACAAcAAAAcAAQAAAACAAcAAAAdAAUAAAACAAcAAAAdAAQAAAACAAcAAAAdAAMAAAACAAcAAAAdAAIAAAACAAcAAAAdAAEAAAACAAcAAAAdAAAAAAACAAAAAAAcAPz/AAABAAAAAAAhAPz/AAABAAAAAAAiAPz/AAADAAAAAAAXAP//AAABAAAAAAAdAPz/AAADAAAAAAA=")
 tile_set = ExtResource("1_vk57k")
 
-[node name="Player" parent="." instance=ExtResource("3_xfk5q")]
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer" unique_id=1007967704]
+tile_map_data = PackedByteArray("AAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAAAAAAAAAAAAAACAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAD9/wEAAAACAAcAAAD9/wIAAAACAAcAAAD9/wMAAAACAAcAAAD9/wQAAAACAAcAAAD9/wUAAAACAAcAAAD+/wUAAAACAAcAAAD+/wQAAAACAAcAAAD+/wMAAAACAAcAAAD+/wIAAAACAAcAAAD+/wEAAAACAAcAAAD//wEAAAACAAcAAAAAAAEAAAACAAcAAAABAAEAAAACAAcAAAACAAEAAAACAAcAAAACAAIAAAACAAcAAAACAAMAAAACAAcAAAACAAQAAAACAAcAAAACAAUAAAACAAcAAAABAAUAAAACAAcAAAAAAAUAAAACAAcAAAD//wUAAAACAAcAAAD//wQAAAACAAcAAAD//wMAAAACAAcAAAD//wIAAAACAAcAAAAAAAIAAAACAAcAAAABAAIAAAACAAcAAAABAAMAAAACAAcAAAAAAAQAAAACAAcAAAAAAAMAAAACAAcAAAABAAQAAAACAAcAAAAGAAEAAAAAAAAAAAAGAAIAAAACAAcAAAAGAAMAAAACAAcAAAAGAAQAAAACAAcAAAARAAEAAAABAAAAAAAUAP//AAABAAAAAAAbAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAABAAYAAAAJAAMAAAABAAYAAAAJAAQAAAABAAYAAAAMAAAAAAABAAYAAAAMAAEAAAABAAYAAAAMAAIAAAABAAYAAAAMAAMAAAABAAYAAAANAAAAAAACAAcAAAANAAEAAAACAAcAAAANAAIAAAACAAcAAAANAAMAAAACAAcAAAAOAAAAAAACAAcAAAAOAAEAAAACAAcAAAAOAAIAAAACAAcAAAAOAAMAAAACAAcAAAARAAIAAAABAAYAAAARAAMAAAABAAYAAAARAAQAAAABAAYAAAARAAUAAAABAAYAAAAUAAAAAAABAAYAAAAUAAEAAAABAAYAAAAUAAIAAAABAAYAAAAXAAAAAAABAAYAAAAXAAEAAAABAAYAAAAXAAIAAAABAAYAAAAbAAEAAAABAAYAAAAbAAIAAAABAAYAAAAbAAMAAAABAAYAAAAbAAQAAAABAAYAAAAbAAUAAAABAAYAAAAbAAYAAAABAAYAAAANAP//AAACAAAAAAAMAP//AAACAAAAAAAOAP//AAACAAAAAAAjAAMAAAACAAcAAAAjAAQAAAACAAcAAAAjAAUAAAACAAcAAAAjAAYAAAACAAcAAAAcAAYAAAACAAcAAAAdAAYAAAACAAcAAAAeAAYAAAACAAcAAAAfAAYAAAACAAcAAAAgAAYAAAACAAcAAAAhAAYAAAACAAcAAAAiAAYAAAACAAcAAAAiAAUAAAACAAcAAAAiAAQAAAACAAcAAAAiAAMAAAACAAcAAAAgAAMAAAACAAcAAAAhAAQAAAACAAcAAAAhAAMAAAACAAcAAAAhAAUAAAACAAcAAAAgAAUAAAACAAcAAAAgAAQAAAACAAcAAAAlAAIAAAABAAUAAAAlAAMAAAABAAYAAAAlAAQAAAABAAcAAAAoAAUAAAABAAUAAAAoAAYAAAABAAYAAAAoAAcAAAABAAcAAAAqAAkAAAABAAUAAAArAAkAAAADAAUAAAAtAAsAAAABAAUAAAAuAAsAAAACAAUAAAAvAAsAAAADAAUAAAAeAAMAAAACAAcAAAAeAAQAAAACAAcAAAAeAAUAAAACAAcAAAAfAAUAAAACAAcAAAAfAAQAAAACAAcAAAAfAAMAAAACAAcAAAAeAAAAAAACAAAAAAAfAAAAAAACAAAAAAAgAAAAAAABAAAAAAAhAAAAAAACAAAAAAAiAAAAAAACAAAAAAAjAAAAAAACAAAAAAAeAAEAAAACAAcAAAAfAAEAAAACAAcAAAAgAAEAAAACAAcAAAAhAAEAAAACAAcAAAAiAAEAAAACAAcAAAAjAAEAAAACAAcAAAAjAAIAAAACAAcAAAAiAAIAAAACAAcAAAAhAAIAAAACAAcAAAAgAAIAAAACAAcAAAAfAAIAAAACAAcAAAAeAAIAAAACAAcAAAAcAAUAAAACAAcAAAAcAAAAAAACAAAAAAAcAAEAAAACAAcAAAAcAAIAAAACAAcAAAAcAAMAAAACAAcAAAAcAAQAAAACAAcAAAAdAAUAAAACAAcAAAAdAAQAAAACAAcAAAAdAAMAAAACAAcAAAAdAAIAAAACAAcAAAAdAAEAAAACAAcAAAAdAAAAAAACAAAAAAAcAPz/AAABAAAAAAAhAPz/AAABAAAAAAAiAPz/AAADAAAAAAAXAP//AAABAAAAAAAdAPz/AAADAAAAAAA=")
+tile_set = ExtResource("1_vk57k")
+
+[node name="Player" parent="." unique_id=1153059678 instance=ExtResource("3_xfk5q")]
 position = Vector2(-30, -2)
 
-[node name="DoubleJumpUI" type="CanvasLayer" parent="Player"]
+[node name="DoubleJumpUI" type="CanvasLayer" parent="Player" unique_id=770333597]
 
-[node name="Label" type="Label" parent="Player/DoubleJumpUI"]
+[node name="Label" type="Label" parent="Player/DoubleJumpUI" unique_id=798962325]
 offset_left = 324.0
 offset_top = 1.0
 offset_right = 649.0
@@ -68,54 +72,54 @@ offset_bottom = 34.0
 text = "                              Double Jump cost 5 coins"
 label_settings = SubResource("LabelSettings_chwpn")
 
-[node name="Coins" type="Node" parent="."]
+[node name="Coins" type="Node" parent="." unique_id=1040832828]
 
-[node name="coin" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="coin" parent="Coins" unique_id=683848905 instance=ExtResource("5_6444e")]
 position = Vector2(67, 18)
 
-[node name="coin2" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="coin2" parent="Coins" unique_id=1792015717 instance=ExtResource("5_6444e")]
 position = Vector2(181, -10)
 
-[node name="coin3" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="coin3" parent="Coins" unique_id=1959745196 instance=ExtResource("5_6444e")]
 position = Vector2(407, 6)
 
-[node name="coin4" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="coin4" parent="Coins" unique_id=2001015011 instance=ExtResource("5_6444e")]
 position = Vector2(291, -10)
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Enemies" type="Node" parent="." unique_id=403107241]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy" parent="Enemies" unique_id=946619375 instance=ExtResource("4_7p6j4")]
 move_speed = 50.0
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy2" parent="Enemies" unique_id=1769349253 instance=ExtResource("4_7p6j4")]
 position = Vector2(183, -20)
 move_speed = 50.0
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy3" parent="Enemies" unique_id=2137633732 instance=ExtResource("4_7p6j4")]
 position = Vector2(337, -22)
 move_direction = Vector2(0, -80)
 move_speed = 55.0
 
-[node name="EndFlag" parent="." instance=ExtResource("6_evi0p")]
+[node name="EndFlag" parent="." unique_id=2079589422 instance=ExtResource("6_evi0p")]
 position = Vector2(731, 175)
 scene_to_load = ExtResource("8_xrdnt")
 
-[node name="Spike" parent="." instance=ExtResource("9_wrinw")]
+[node name="Spike" parent="." unique_id=1632596994 instance=ExtResource("9_wrinw")]
 position = Vector2(729, 166)
 
-[node name="Spike2" parent="." instance=ExtResource("9_wrinw")]
+[node name="Spike2" parent="." unique_id=1834780596 instance=ExtResource("9_wrinw")]
 position = Vector2(747, 166)
 
-[node name="Spike3" parent="." instance=ExtResource("9_wrinw")]
+[node name="Spike3" parent="." unique_id=1209714720 instance=ExtResource("9_wrinw")]
 position = Vector2(470, -10)
 
-[node name="Spike4" parent="." instance=ExtResource("9_wrinw")]
+[node name="Spike4" parent="." unique_id=1243668015 instance=ExtResource("9_wrinw")]
 position = Vector2(545, -9)
 
-[node name="Enemy2" parent="." instance=ExtResource("4_7p6j4")]
+[node name="Enemy2" parent="." unique_id=1328041115 instance=ExtResource("4_7p6j4")]
 position = Vector2(682, 55)
 move_direction = Vector2(-500, 0)
 move_speed = 300.0
 
-[node name="LuckyBlock" parent="." instance=ExtResource("10_chwpn")]
+[node name="LuckyBlock" parent="." unique_id=884195294 instance=ExtResource("10_chwpn")]
 position = Vector2(3, -39)
