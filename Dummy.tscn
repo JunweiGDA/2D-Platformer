@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://cwdvrnomdaer1"]
+[gd_scene format=3 uid="uid://dsq84ha58ihs7"]
 
-[ext_resource type="Script" uid="uid://dso4ndipnjbkd" path="res://slavery.gd" id="1_dmpq8"]
-[ext_resource type="Texture2D" uid="uid://drknvsx770a6j" path="res://Slavery.png" id="1_uik1x"]
+[ext_resource type="Script" path="res://slavery.gd" id="1_dmpq8"]
+[ext_resource type="Texture2D" path="res://Slavery.png" id="1_uik1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1qmg"]
 radius = 17.0
 
-[node name="Slavery" type="CharacterBody2D" unique_id=1131725716]
+[node name="Dummy" type="CharacterBody2D" unique_id=1131725716]
 script = ExtResource("1_dmpq8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=57322859]
