@@ -61,9 +61,11 @@ position = Vector2(-30, -2)
 [node name="DoubleJumpUI" type="CanvasLayer" parent="Player" unique_id=93959561]
 
 [node name="Label" type="Label" parent="Player/DoubleJumpUI" unique_id=1065607230]
-offset_right = 221.0
-offset_bottom = 25.0
-text = "Double Jump need 5 coins"
+offset_left = 324.0
+offset_top = 1.0
+offset_right = 649.0
+offset_bottom = 34.0
+text = "                              Double Jump need 5 coins"
 label_settings = SubResource("LabelSettings_chwpn")
 
 [node name="Coins" type="Node" parent="." unique_id=120666327]
@@ -99,19 +101,19 @@ position = Vector2(731, 175)
 scene_to_load = ExtResource("8_xrdnt")
 
 [node name="Spike" parent="." unique_id=1636188053 instance=ExtResource("9_wrinw")]
-position = Vector2(729, 165)
+position = Vector2(729, 166)
 
 [node name="Spike2" parent="." unique_id=2140193639 instance=ExtResource("9_wrinw")]
-position = Vector2(747, 165)
+position = Vector2(747, 166)
 
 [node name="Spike3" parent="." unique_id=2116327455 instance=ExtResource("9_wrinw")]
-position = Vector2(470, -12)
+position = Vector2(470, -10)
 
 [node name="Spike4" parent="." unique_id=832414393 instance=ExtResource("9_wrinw")]
-position = Vector2(545, -11)
+position = Vector2(545, -9)
 
 [node name="Enemy2" parent="." unique_id=530939857 instance=ExtResource("4_7p6j4")]
-position = Vector2(810, -65)
+position = Vector2(682, 55)
 move_direction = Vector2(-500, 0)
 move_speed = 300.0
 
