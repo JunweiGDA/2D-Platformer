@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="8_ki8bc"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_nbwsh"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_kgmqw"]
+[ext_resource type="PackedScene" uid="uid://bgkubn3kdtjoi" path="res://Scenes/chest.tscn" id="11_jtv8s"]
 
 [node name="Main" type="Node2D" unique_id=655947746]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -124,3 +125,6 @@ damage = 50
 
 [node name="LuckyBlock" parent="." unique_id=1912453121 instance=ExtResource("10_kgmqw")]
 position = Vector2(672, 0)
+
+[node name="StaticBody2D" parent="." unique_id=377577793 instance=ExtResource("11_jtv8s")]
+position = Vector2(699, 40)
