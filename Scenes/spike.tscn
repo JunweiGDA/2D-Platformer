@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://clk4jwqmchpsk"]
+[gd_scene load_steps=0 format=3 uid="uid://clk4jwqmchpsk"]
 
 [ext_resource type="Script" uid="uid://ca7ah8mkfn65a" path="res://Scripts/spike.gd" id="1_1hotg"]
 [ext_resource type="Texture2D" uid="uid://bkridxnt62k23" path="res://Sprites/Objects/tile_0068.png" id="2_2mnih"]
