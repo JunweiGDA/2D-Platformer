@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://bgcj2g24ullpj"]
+=======
+[gd_scene format=3 uid="uid://bgcj2g24ullpj"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://cnaayy8cdbe0o" path="res://final_boss.gd" id="1_ifitu"]
 [ext_resource type="Texture2D" uid="uid://opyyg77ww06n" path="res://final boss.png" id="1_xooy5"]

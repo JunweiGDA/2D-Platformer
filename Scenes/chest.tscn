@@ -6,6 +6,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_twpm2"]
 radius = 14.0
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="Animation" id="Animation_cjfl1"]
+resource_name = "Chest Open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bagqn"]
+_data = {
+&"Chest Open": SubResource("Animation_cjfl1")
+}
+
+>>>>>>> Stashed changes
 [node name="StaticBody2D" type="StaticBody2D" unique_id=377577793]
 script = ExtResource("1_cjfl1")
 
@@ -16,6 +27,10 @@ shape = SubResource("CircleShape2D_twpm2")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1766776966]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1764748979]
+<<<<<<< Updated upstream
+=======
+libraries/ = SubResource("AnimationLibrary_bagqn")
+>>>>>>> Stashed changes
 
 [node name="ChestSheet" type="Sprite2D" parent="." unique_id=1203504589]
 position = Vector2(48, 4)
