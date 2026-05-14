@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bgkubn3kdtjoi"]
+
+[ext_resource type="Texture2D" uid="uid://bt6p8j6m5qxv" path="res://Sprites/Objects/chest-Sheet.png" id="1_twpm2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twpm2"]
+radius = 24.04163
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 0)
+shape = SubResource("CircleShape2D_twpm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ChestSheet" type="Sprite2D" parent="."]
+position = Vector2(48, 4)
+texture = ExtResource("1_twpm2")
