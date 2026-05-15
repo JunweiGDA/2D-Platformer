@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://vivwaud51hnl"]
+[gd_scene format=3 uid="uid://vivwaud51hnl"]
 
 [ext_resource type="Script" uid="uid://c8t7c4e7nnucv" path="res://portal.gd" id="1_ef3v5"]
 [ext_resource type="Texture2D" uid="uid://dpjxsgq8pmjuf" path="res://Portal.png" id="2_grrij"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6r214"]
-radius = 11.0
+radius = 51.1957
 
-[node name="Portal" type="Area2D"]
+[node name="Portal" type="Area2D" unique_id=1935434155]
 script = ExtResource("1_ef3v5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1504155015]
+position = Vector2(71.5, -69.5)
+scale = Vector2(3.234375, 3.171875)
 texture = ExtResource("2_grrij")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=332809987]
+position = Vector2(80, -68)
 shape = SubResource("CircleShape2D_6r214")
