@@ -112,7 +112,10 @@ move_direction = Vector2(40, 0)
 move_speed = 80.0
 
 [node name="Dummy" parent="Enemies" unique_id=283906619 instance=ExtResource("11_t7v2y")]
-position = Vector2(728, 30)
+position = Vector2(720, 29)
+
+[node name="Dummy2" parent="Enemies" unique_id=1265918634 instance=ExtResource("11_t7v2y")]
+position = Vector2(1418, 13)
 
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_vcilj")]
 position = Vector2(1510, 31)

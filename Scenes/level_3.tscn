@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_n4vm5"]
 [ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_fxnjf"]
 [ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="6_xjeco"]
+[ext_resource type="PackedScene" uid="uid://dk2mrk7obiay" path="res://Dummy.tscn" id="7_5rvg2"]
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_j77fg"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_nbwsh"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_kgmqw"]
@@ -97,11 +98,6 @@ position = Vector2(519, -46)
 move_direction = Vector2(0, -80)
 move_speed = 30.0
 
-[node name="Enemy3" parent="Enemies/Enemy3" unique_id=124569529 instance=ExtResource("6_xjeco")]
-position = Vector2(210, 5)
-move_direction = Vector2(250, 0)
-move_speed = 400.0
-
 [node name="Enemy4" parent="Enemies" unique_id=477826721 instance=ExtResource("6_xjeco")]
 position = Vector2(172, -91)
 move_direction = Vector2(300, 0)
@@ -111,6 +107,14 @@ move_speed = 200.0
 position = Vector2(1446, -22)
 move_direction = Vector2(40, 0)
 move_speed = 80.0
+
+[node name="Enemy6" parent="Enemies" unique_id=124569529 instance=ExtResource("6_xjeco")]
+position = Vector2(729, -41)
+move_direction = Vector2(250, 0)
+move_speed = 400.0
+
+[node name="Dummy" parent="Enemies" unique_id=283906619 instance=ExtResource("7_5rvg2")]
+position = Vector2(728, 30)
 
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_j77fg")]
 position = Vector2(1510, 31)
