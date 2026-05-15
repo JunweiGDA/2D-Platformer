@@ -1,17 +1,31 @@
-[gd_scene format=3 uid="uid://dsq84ha58ihs7"]
+[gd_scene format=3 uid="uid://dk2mrk7obiay"]
 
-[ext_resource type="Script" path="res://slavery.gd" id="1_dmpq8"]
-[ext_resource type="Texture2D" path="res://Slavery.png" id="1_uik1x"]
+[ext_resource type="Script" uid="uid://dddefdlapta56" path="res://dummy.gd" id="1_xmspm"]
+[ext_resource type="Texture2D" uid="uid://ci03bl7vt31sr" path="res://Dummy.png" id="2_0umox"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h1qmg"]
-radius = 17.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_1324b"]
+radius = 18.0
 
-[node name="Dummy" type="CharacterBody2D" unique_id=1131725716]
-script = ExtResource("1_dmpq8")
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmspm"]
+radius = 75.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=57322859]
-texture = ExtResource("1_uik1x")
+[node name="Dummy" type="CharacterBody2D" unique_id=283906619]
+script = ExtResource("1_xmspm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075942178]
-position = Vector2(-2, 3)
-shape = SubResource("CircleShape2D_h1qmg")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=843904681]
+texture = ExtResource("2_0umox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613424780]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_1324b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=614044574]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=321092514]
+shape = SubResource("CircleShape2D_xmspm")
+
+[node name="Timer" type="Timer" parent="." unique_id=202081275]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

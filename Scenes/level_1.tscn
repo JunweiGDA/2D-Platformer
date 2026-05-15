@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cs7bydaqonqnf"]
+[gd_scene format=4 uid="uid://ds75lvm8eqf4l"]
 
 [ext_resource type="Texture2D" uid="uid://dhtvwtc1oohln" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_8ffim"]
 [ext_resource type="Script" uid="uid://bd5irt7mg6nfy" path="res://Scripts/background_parallax.gd" id="1_lsmp6"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="4_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://bj2wjre1h6or3" path="res://Scenes/coin.tscn" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="6_evi0p"]
-[ext_resource type="PackedScene" path="res://Scenes/level_2.tscn" id="8_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_wrinw"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_chwpn"]
 
@@ -115,11 +115,6 @@ position = Vector2(470, -10)
 
 [node name="Spike4" parent="." unique_id=1243668015 instance=ExtResource("9_wrinw")]
 position = Vector2(545, -9)
-
-[node name="Enemy2" parent="." unique_id=1328041115 instance=ExtResource("4_7p6j4")]
-position = Vector2(682, 55)
-move_direction = Vector2(-500, 0)
-move_speed = 300.0
 
 [node name="LuckyBlock" parent="." unique_id=884195294 instance=ExtResource("10_chwpn")]
 position = Vector2(3, -39)
