@@ -53,7 +53,7 @@ tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAACAAMAAAAAAAAAAAACAAM
 tile_set = ExtResource("3_uhnj4")
 
 [node name="Player" parent="." unique_id=754337358 instance=ExtResource("4_42uki")]
-position = Vector2(1409, 27)
+position = Vector2(555, -34)
 
 [node name="Coins" type="Node" parent="." unique_id=1590213818]
 
@@ -112,10 +112,7 @@ move_direction = Vector2(40, 0)
 move_speed = 80.0
 
 [node name="Dummy" parent="Enemies" unique_id=283906619 instance=ExtResource("11_t7v2y")]
-position = Vector2(720, 29)
-
-[node name="Dummy2" parent="Enemies" unique_id=1265918634 instance=ExtResource("11_t7v2y")]
-position = Vector2(1418, 13)
+position = Vector2(731, 30)
 
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_vcilj")]
 position = Vector2(1510, 31)
@@ -135,4 +132,10 @@ position = Vector2(1158, 6)
 damage = 50
 
 [node name="LuckyBlock" parent="." unique_id=1912453121 instance=ExtResource("10_42uki")]
-position = Vector2(737, -109)
+position = Vector2(520, -75)
+
+[node name="LuckyBlock2" parent="." unique_id=853285819 instance=ExtResource("10_42uki")]
+position = Vector2(328, -69)
+
+[node name="LuckyBlock3" parent="." unique_id=368154901 instance=ExtResource("10_42uki")]
+position = Vector2(171, -64)

@@ -7,7 +7,7 @@
 radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmspm"]
-radius = 75.0
+radius = 30.0
 
 [node name="Dummy" type="CharacterBody2D" unique_id=283906619]
 script = ExtResource("1_xmspm")
@@ -22,6 +22,7 @@ shape = SubResource("CircleShape2D_1324b")
 [node name="Area2D" type="Area2D" parent="." unique_id=614044574]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=321092514]
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_xmspm")
 
 [node name="Timer" type="Timer" parent="." unique_id=202081275]

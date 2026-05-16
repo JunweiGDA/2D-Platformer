@@ -118,4 +118,4 @@ position = Vector2(470, -10)
 position = Vector2(545, -9)
 
 [node name="LuckyBlock" parent="." unique_id=884195294 instance=ExtResource("10_chwpn")]
-position = Vector2(3, -39)
+position = Vector2(504, -56)
