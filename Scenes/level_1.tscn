@@ -61,7 +61,7 @@ tile_map_data = PackedByteArray("AAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAA
 tile_set = ExtResource("1_vk57k")
 
 [node name="Player" parent="." unique_id=1153059678 instance=ExtResource("3_xfk5q")]
-position = Vector2(-30, -2)
+position = Vector2(-31, -15)
 
 [node name="DoubleJumpUI" type="CanvasLayer" parent="Player" unique_id=770333597]
 
