@@ -244,8 +244,3 @@ func play_sound(sound : AudioStream):
 
 	audio.stream = sound
 	audio.play()
-
-	if velocity.x < 0:
-		$Sprite2D.flip_h = true
-	elif velocity.x > 0:
-		$Sprite2D.flip_h = false
