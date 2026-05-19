@@ -9,7 +9,7 @@ signal OnUpdateScore(score : int)
 @export var gravity : float = 500
 @export var jump_force : float = 200
 @export var max_jumps : int = 2
-@export var double_jump_cost : int = 5
+@export var double_jump_cost : int = 3
 
 var jump_count : int = 0
 @export var health : float = 3
