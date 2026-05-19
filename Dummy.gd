@@ -8,7 +8,7 @@ var damage = 1
 
 var can_attack = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	if player != null:
 
