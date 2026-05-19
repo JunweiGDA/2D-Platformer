@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://sm8kmn5i04mo"]
+
+[ext_resource type="Texture2D" uid="uid://d4l5y1venahvx" path="res://Rock.png" id="1_6r1ml"]
+[ext_resource type="Script" uid="uid://lvfx6apw4isw" path="res://rock.gd" id="1_55vvm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6r1ml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55vvm"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru2eq"]
+radius = 21.023796
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=600767959 groups=["Rocks"]]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_6r1ml")
+script = ExtResource("1_55vvm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=432399199]
+texture = ExtResource("1_6r1ml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049851684]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_55vvm")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=569341177]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1635479678]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_ru2eq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

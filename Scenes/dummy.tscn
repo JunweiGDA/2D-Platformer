@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bup2lsh8gb5qs"]
+
+[ext_resource type="Script" path="res://Scripts/dummy.gd" id="1_5d6mj"]
+[ext_resource type="Texture2D" uid="uid://ci03bl7vt31sr" path="res://Dummy.png" id="2_s0uyp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1324b"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmspm"]
+radius = 75.0
+
+[node name="Dummy" type="CharacterBody2D" unique_id=283906619]
+script = ExtResource("1_5d6mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=843904681]
+texture = ExtResource("2_s0uyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613424780]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_1324b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=614044574]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=321092514]
+shape = SubResource("CircleShape2D_xmspm")
+
+[node name="Timer" type="Timer" parent="." unique_id=202081275]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

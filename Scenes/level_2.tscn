@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://t01x14wxkve1" path="res://Scenes/level_3.tscn" id="8_42uki"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_uhnj4"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_42uki"]
+[ext_resource type="PackedScene" uid="uid://dk2mrk7obiay" path="res://Dummy.tscn" id="11_t7v2y"]
 
 [node name="Main" type="Node2D" unique_id=655947746]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -52,7 +53,7 @@ tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAACAAMAAAAAAAAAAAACAAM
 tile_set = ExtResource("3_uhnj4")
 
 [node name="Player" parent="." unique_id=754337358 instance=ExtResource("4_42uki")]
-position = Vector2(627, 41)
+position = Vector2(555, -47)
 
 [node name="Coins" type="Node" parent="." unique_id=1590213818]
 
@@ -110,6 +111,9 @@ position = Vector2(1446, -22)
 move_direction = Vector2(40, 0)
 move_speed = 80.0
 
+[node name="Dummy" parent="Enemies" unique_id=283906619 instance=ExtResource("11_t7v2y")]
+position = Vector2(731, 30)
+
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_vcilj")]
 position = Vector2(1510, 31)
 scene_to_load = ExtResource("8_42uki")
@@ -128,4 +132,10 @@ position = Vector2(1158, 6)
 damage = 50
 
 [node name="LuckyBlock" parent="." unique_id=1912453121 instance=ExtResource("10_42uki")]
-position = Vector2(672, 0)
+position = Vector2(520, -75)
+
+[node name="LuckyBlock2" parent="." unique_id=853285819 instance=ExtResource("10_42uki")]
+position = Vector2(328, -69)
+
+[node name="LuckyBlock3" parent="." unique_id=368154901 instance=ExtResource("10_42uki")]
+position = Vector2(171, -64)
