@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://hrjcxt04771d" path="res://Sprites/Characters/Level 2 Boss (WIP)4.png" id="7_ukyrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
-radius = 11.0
-height = 24.0
+radius = 6.0
+height = 38.0
 
 [sub_resource type="Animation" id="Animation_fkybt"]
 length = 0.001
@@ -101,7 +101,7 @@ offset = Vector2(0, -12)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1774566344]
-position = Vector2(0, -12)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_v0iea")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1041855040]
