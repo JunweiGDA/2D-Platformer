@@ -1,14 +1,92 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv0g1jn3n7ini"]
+[gd_scene format=3 uid="uid://dv0g1jn3n7ini"]
 
 [ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://borxllj4gixuk" path="res://Sprites/Characters/Level 2 Boss (WIP)1.png" id="2_f1ek2"]
 [ext_resource type="Script" uid="uid://cva4i4q883bsl" path="res://Scripts/camera_shake.gd" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://rb1wa275ui0y" path="res://Scripts/canvas_ui.gd" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://c5mf3bekyhjme" path="res://Sprites/Characters/Level 2 Boss (WIP)8.png" id="4_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://c75tyyo6x3n37" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://b41tt5wf0debk" path="res://Sprites/Characters/Level 2 Boss (WIP)2.png" id="5_gymyn"]
+[ext_resource type="Texture2D" uid="uid://cu11uyw2ugvgc" path="res://Sprites/Characters/Level 2 Boss (WIP)3.png" id="6_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://hrjcxt04771d" path="res://Sprites/Characters/Level 2 Boss (WIP)4.png" id="7_ukyrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
 radius = 6.0
 height = 38.0
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_f1ek2")]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "idle "
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_f1ek2")]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "jump"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_tx1dd"), ExtResource("2_f1ek2")]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_gymyn"), ExtResource("6_pu2lt"), ExtResource("7_ukyrk")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3smsa"]
+_data = {
+&"RESET": SubResource("Animation_fkybt"),
+&"idle ": SubResource("Animation_vgqql"),
+&"jump": SubResource("Animation_6t5aa"),
+&"move": SubResource("Animation_x3wgy")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
 font_size = 38
@@ -18,53 +96,54 @@ shadow_color = Color(0, 0, 0, 0.48235294)
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1ek2"]
 radius = 45.01111
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=610010024 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1831470410]
 scale = Vector2(0.070312485, 0.08560547)
 texture = ExtResource("2_f1ek2")
 offset = Vector2(0, -12)
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1774566344]
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_v0iea")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1041855040]
 position = Vector2(0, -24)
 zoom = Vector2(3, 3)
 script = ExtResource("3_x3wgy")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1144059341]
+libraries/ = SubResource("AnimationLibrary_3smsa")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1021847237]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1135613079]
 script = ExtResource("4_fkybt")
 
-[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=273907249]
 offset_left = 19.0
 offset_top = 4.0
 offset_right = 478.0
 offset_bottom = 84.0
 
-[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=935379538]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=510547084]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=245678110]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="ScoreText" type="Label" parent="CanvasLayer"]
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=637124759]
 offset_left = 34.0
 offset_top = 92.0
 offset_right = 261.0
@@ -72,9 +151,9 @@ offset_bottom = 142.0
 text = "Score: 500"
 label_settings = SubResource("LabelSettings_vgqql")
 
-[node name="PickupArea" type="Area2D" parent="."]
+[node name="PickupArea" type="Area2D" parent="." unique_id=510585733]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=58660612]
 position = Vector2(3, -2)
 shape = SubResource("CircleShape2D_f1ek2")
 

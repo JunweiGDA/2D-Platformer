@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_j77fg"]
 [ext_resource type="PackedScene" uid="uid://cj4lsveadqtei" path="res://boss.tscn" id="9_l4wr6"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_nbwsh"]
-[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://Rock.tscn" id="10_5rvg2"]
+[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://rock.tscn" id="10_5rvg2"]
 
 [node name="Main2" type="Node2D" unique_id=655947746]
 metadata/_edit_horizontal_guides_ = [661.0]

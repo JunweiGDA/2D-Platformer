@@ -160,7 +160,7 @@ func throw_rock():
 func _manage_animation():
 
 	if stunned:
-		anim.play("idle")
+		anim.play("RESET")
 		return
 
 	if not is_on_floor():
@@ -168,7 +168,7 @@ func _manage_animation():
 	elif velocity.x != 0:
 		anim.play("move")
 	else:
-		anim.play("idle")
+		anim.play("RESET")
 
 
 # =========================
