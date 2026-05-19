@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var coins_reward := 5
+@export var coins_reward := 3
 var used := false
 
 func _ready():
