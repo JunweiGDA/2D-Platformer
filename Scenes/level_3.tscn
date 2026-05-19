@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_j77fg"]
 [ext_resource type="PackedScene" uid="uid://cj4lsveadqtei" path="res://boss.tscn" id="9_l4wr6"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_nbwsh"]
+[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://Rock.tscn" id="10_5rvg2"]
 
 [node name="Main2" type="Node2D" unique_id=655947746]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -63,10 +64,13 @@ tile_map_data = PackedByteArray("AADz/wAABAAAAC0AAADz/wEABAAAAC4AAADz/wIABAAAAC8
 tile_set = ExtResource("3_c81s1")
 
 [node name="Player" parent="." unique_id=610010024 instance=ExtResource("4_n4vm5")]
-position = Vector2(51, -4)
+position = Vector2(2319, 0)
 
 [node name="Portal" parent="." unique_id=1067416732 instance=ExtResource("4_s8nj6")]
 position = Vector2(-104, 45)
 
 [node name="Boss" parent="." unique_id=1051107994 instance=ExtResource("9_l4wr6")]
 position = Vector2(2687, 0)
+
+[node name="RigidBody2D" parent="." unique_id=600767959 groups=["Player", "boss"] instance=ExtResource("10_5rvg2")]
+position = Vector2(2407, 5)

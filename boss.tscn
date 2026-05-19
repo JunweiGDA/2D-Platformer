@@ -3,19 +3,30 @@
 [ext_resource type="Script" uid="uid://olfbuj7xwq3f" path="res://BossGaze.gd" id="1_6xxrv"]
 [ext_resource type="Texture2D" uid="uid://opyyg77ww06n" path="res://final boss.png" id="2_skx2t"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xxrv"]
+radius = 24.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_skx2t"]
 radius = 125.48307
 
-[node name="Boss" type="CharacterBody2D" unique_id=1051107994]
+[node name="Boss" type="CharacterBody2D" unique_id=1051107994 groups=["boss"]]
+collision_layer = 4
 script = ExtResource("1_6xxrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612632981]
+position = Vector2(-31, 3)
+shape = SubResource("CircleShape2D_6xxrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1680857610]
 texture = ExtResource("2_skx2t")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=133434956]
+[node name="Hitbox" type="Area2D" parent="." unique_id=133434956]
+position = Vector2(155, -16)
+collision_layer = 4
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=610143924]
-position = Vector2(-32, 6)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=610143924]
+position = Vector2(-186, 21)
 shape = SubResource("CircleShape2D_skx2t")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
