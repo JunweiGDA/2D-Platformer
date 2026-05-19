@@ -12,76 +12,52 @@ signal OnUpdateScore(score : int)
 @export var double_jump_cost : int = 5
 
 var jump_count : int = 0
-
-# Changed to float for gaze damage over time
 @export var health : float = 3
 
 var move_input : float
 
 # =========================
-# GAZE SYSTEM
+# ROCK SYSTEM (AUTO PICKUP)
 # =========================
+var held_rock = null
+
 var facing_direction := Vector2.RIGHT
-
-var fear := 0.0
-var max_fear := 100.0
-
 var stunned := false
-
-# =========================
+var is_game_over := false
 
 @onready var sprite : Sprite2D = $Sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
-
 @onready var double_jump_ui : Label = get_tree().current_scene.get_node("CanvasLayer/DoubleJumpUI")
 
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
-var is_game_over := false
 
+# =========================
+# PHYSICS
+# =========================
 func _physics_process(delta):
 
-	# Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# =========================
-	# STUN CHECK
-	# =========================
 	if stunned:
 		move_and_slide()
 		return
 
-	# =========================
-	# MOVEMENT INPUT
-	# =========================
 	move_input = Input.get_axis("move_left", "move_right")
 
-	# Facing direction for boss gaze
 	if move_input > 0:
 		facing_direction = Vector2.RIGHT
 	elif move_input < 0:
 		facing_direction = Vector2.LEFT
 
-	# Horizontal movement
 	if move_input != 0:
-		velocity.x = lerp(
-			velocity.x,
-			move_input * move_speed,
-			acceleration * delta
-		)
+		velocity.x = lerp(velocity.x, move_input * move_speed, acceleration * delta)
 	else:
-		velocity.x = lerp(
-			velocity.x,
-			0.0,
-			braking * delta
-		)
+		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 
-	# =========================
-	# JUMP
-	# =========================
 	if Input.is_action_just_pressed("jump"):
 
 		if is_on_floor():
@@ -90,54 +66,97 @@ func _physics_process(delta):
 
 		else:
 			if jump_count < max_jumps:
-
 				if PlayerStats.score >= double_jump_cost:
-
 					PlayerStats.score -= double_jump_cost
 					OnUpdateScore.emit(PlayerStats.score)
 
 					velocity.y = -jump_force
 					jump_count += 1
 
-	# Reset jumps
 	if is_on_floor():
 		jump_count = 0
 
 	move_and_slide()
 
+
+# =========================
+# PROCESS
+# =========================
 func _process(_delta):
 
-	# Flip sprite
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x > 0
 
-	# Death by falling
 	if global_position.y > 200:
 		game_over()
 
 	_manage_animation()
 
-	# =========================
-	# FEAR VISUAL EFFECT
-	# =========================
-	sprite.modulate = Color.WHITE.lerp(
-		Color.RED,
-		fear / max_fear
-	)
+	sprite.modulate = Color.WHITE
 
 	# =========================
-	# DOUBLE JUMP UI
+	# AUTO PICKUP (NEW)
 	# =========================
-	if double_jump_ui != null:
+	if held_rock == null:
+		var rock = get_nearby_rock()
+		if rock:
+			pick_up_rock(rock)
 
-		if PlayerStats.score >= double_jump_cost:
-			double_jump_ui.text = "Double Jump: 5 coins (READY)"
-			double_jump_ui.modulate = Color.GREEN
+	# =========================
+	# THROW
+	# =========================
+	if Input.is_action_just_pressed("throw"):
+		if held_rock:
+			throw_rock()
 
-		else:
-			double_jump_ui.text = "Double Jump: 5 coins (LOCKED)"
-			double_jump_ui.modulate = Color.RED
 
+# =========================
+# FIND ROCK
+# =========================
+func get_nearby_rock():
+
+	for body in $PickupArea.get_overlapping_bodies():
+		if body.is_in_group("rocks"):
+			return body
+
+	return null
+
+
+# =========================
+# PICKUP
+# =========================
+func pick_up_rock(rock):
+
+	held_rock = rock
+
+	held_rock.freeze = true
+	held_rock.linear_velocity = Vector2.ZERO
+
+	held_rock.reparent(self)
+	held_rock.position = Vector2(12, -10)
+
+
+# =========================
+# THROW
+# =========================
+func throw_rock():
+
+	var rock = held_rock
+	held_rock = null
+
+	rock.reparent(get_tree().current_scene)
+
+	var dir = -1 if sprite.flip_h else 1
+
+	rock.global_position = global_position + Vector2(20 * dir, -10)
+
+	rock.freeze = false
+	rock.linear_velocity = Vector2(350 * dir, -120)
+
+
+# =========================
+# ANIMATION
+# =========================
 func _manage_animation():
 
 	if stunned:
@@ -146,100 +165,42 @@ func _manage_animation():
 
 	if not is_on_floor():
 		anim.play("jump")
-
-	elif move_input != 0:
+	elif velocity.x != 0:
 		anim.play("move")
-
 	else:
 		anim.play("idle")
 
+
 # =========================
-# DAMAGE
+# DAMAGE SYSTEM
 # =========================
 func take_damage(amount : float):
 
 	health -= amount
-
 	OnUpdateHealth.emit(int(health))
-
-	_damage_flash()
 
 	play_sound(take_damage_sfx)
 
 	if health <= 0:
 		call_deferred("game_over")
 
-# =========================
-# STUN FUNCTION
-# =========================
-func stun(duration : float):
 
-	if stunned:
-		return
-
-	stunned = true
-
-	# Stop movement
-	velocity.x = 0
-
-	# Visual effect
-	sprite.modulate = Color.DARK_RED
-
-	print("PLAYER STUNNED")
-
-	await get_tree().create_timer(duration).timeout
-
-	stunned = false
-
-	print("PLAYER RECOVERED")
-
-# =========================
-# GAME OVER
-# =========================
 func game_over():
 
 	if is_game_over:
 		return
 
 	is_game_over = true
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/menu.tscn")
 
-	var tree = get_tree()
 
-	if tree:
-		tree.call_deferred(
-			"change_scene_to_file",
-			"res://Scenes/menu.tscn"
-		)
-
-# =========================
-# SCORE
-# =========================
 func increase_score(amount : int):
 
 	PlayerStats.score += amount
-
 	OnUpdateScore.emit(PlayerStats.score)
-
 	play_sound(coin_sfx)
 
-# =========================
-# DAMAGE FLASH
-# =========================
-func _damage_flash():
 
-	sprite.modulate = Color.RED
-
-	await get_tree().create_timer(0.05).timeout
-
-	# Restore fear tint
-	sprite.modulate = Color.WHITE.lerp(
-		Color.RED,
-		fear / max_fear
-	)
-
-# =========================
-# AUDIO
-# =========================
 func play_sound(sound : AudioStream):
 
 	audio.stream = sound
