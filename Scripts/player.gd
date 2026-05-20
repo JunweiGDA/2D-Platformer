@@ -168,3 +168,16 @@ func throw_rock():
 	rock.global_position = global_position + Vector2(20 * dir, -10)
 
 	rock.linear_velocity = Vector2(450 * dir, -150)
+
+func _manage_animation():
+	
+		if stunned:
+			anim.play("idle")
+			return
+			
+		if not is_on_floor():
+			anim.play("jump")
+		elif velocity.x !=0:
+			anim.play("move")
+		else:
+			anim.play("idle ")
