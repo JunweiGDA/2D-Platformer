@@ -7,13 +7,14 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
+
 	if used:
 		return
-	
-	if not body.has_method("take_damage"):
+
+	if not body.is_in_group("player"):
 		return
 
-	used = true  # 💡 prevents reuse immediately
+	used = true
 
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -21,12 +22,15 @@ func _on_body_entered(body):
 	var roll = rng.randi_range(1, 100)
 
 	if roll <= 5:
-		# 💀 5% death
-		body.take_damage(999)
-	else:
-		# 💰 95% reward
-		if body.has_method("increase_score"):
-			body.increase_score(coins_reward)
 
-	# 🧹 remove block after interaction
+		print("BAD LUCK")
+
+		body.take_damage(999)
+
+	else:
+
+		print("GOOD LUCK")
+
+		body.increase_score(coins_reward)
+
 	queue_free()

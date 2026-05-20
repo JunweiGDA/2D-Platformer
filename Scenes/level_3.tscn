@@ -5,7 +5,6 @@
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="3_c81s1"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_n4vm5"]
 [ext_resource type="PackedScene" uid="uid://vivwaud51hnl" path="res://Scenes/portal.tscn" id="4_s8nj6"]
-[ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="5_5e78q"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="6_jtv8s"]
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_j77fg"]
 [ext_resource type="PackedScene" uid="uid://cj4lsveadqtei" path="res://boss.tscn" id="9_l4wr6"]
@@ -59,7 +58,6 @@ position = Vector2(880, -97)
 
 [node name="EndFlag" parent="ParallaxBackground" unique_id=492366890 instance=ExtResource("7_j77fg")]
 position = Vector2(3161, 9)
-scene_to_load = ExtResource("5_5e78q")
 
 [node name="LuckyBlock" parent="ParallaxBackground" unique_id=1912453121 instance=ExtResource("6_jtv8s")]
 position = Vector2(254, -103)

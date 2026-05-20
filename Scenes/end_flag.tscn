@@ -8,7 +8,6 @@ radius = 8.0
 
 [node name="EndFlag" type="Area2D" unique_id=1037504763]
 collision_layer = 8
-collision_mask = 2
 script = ExtResource("1_thwiu")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=836987681]

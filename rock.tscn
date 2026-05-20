@@ -12,6 +12,8 @@ radius = 13.0
 radius = 17.029387
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=600767959 groups=["rocks"]]
+collision_layer = 16
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_6r1ml")
 script = ExtResource("1_55vvm")
 

@@ -7,8 +7,7 @@
 radius = 9.055386
 
 [node name="Spike" type="Area2D" unique_id=1636188053]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 2
 script = ExtResource("1_1hotg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1253292821]
@@ -17,3 +16,5 @@ texture = ExtResource("2_2mnih")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1614119388]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_7k7bx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
