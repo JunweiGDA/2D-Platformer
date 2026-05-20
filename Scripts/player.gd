@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@warning_ignore("unused_signal")
 signal OnUpdateHealth(health : int)
 signal OnUpdateScore(score : int)
 
@@ -171,13 +172,13 @@ func throw_rock():
 
 func _manage_animation():
 	
-		if stunned:
+	if stunned:
 			anim.play("RESET")
 			return
 		
-		if not is_on_floor():
-			anim.play("jump")
-		elif velocity.x !=0:
-			anim.play("move")
-		else:
-			anim.play("RESET")
+	if not is_on_floor():
+		anim.play("jump")
+	elif velocity.x !=0:
+		anim.play("move")
+	else:
+		anim.play("RESET")
