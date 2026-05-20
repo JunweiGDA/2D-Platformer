@@ -17,17 +17,14 @@ script = ExtResource("1_xmspm")
 texture = ExtResource("2_0umox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613424780]
-visible = false
 position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_1324b")
 
 [node name="DetectArea" type="Area2D" parent="." unique_id=614044574]
-position = Vector2(-2, 1)
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=321092514]
-visible = false
 position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_xmspm")
 
