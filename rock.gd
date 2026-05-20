@@ -7,7 +7,7 @@ var is_held := false
 func _ready():
 	hitbox.body_entered.connect(_on_hitbox_body_entered)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	if is_held:
 		freeze = true

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@warning_ignore("unused_signal")
 signal OnUpdateHealth(health : int)
 signal OnUpdateScore(score : int)
 
@@ -89,7 +90,7 @@ func game_over():
 	print("GAME OVER")
 
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-func _process(delta):
+func _process(_delta):
 
 	if held_rock:
 
@@ -171,6 +172,7 @@ func throw_rock():
 
 	rock.linear_velocity = Vector2(450 * dir, -150)
 
+
 func increase_score(amount : int):
 
 	PlayerStats.score += amount
@@ -208,3 +210,16 @@ func play_sound(sound : AudioStream):
 
 	audio.stream = sound
 	audio.play()
+
+func _manage_animation():
+	
+	if stunned:
+			anim.play("RESET")
+			return
+		
+	if not is_on_floor():
+		anim.play("jump")
+	elif velocity.x !=0:
+		anim.play("move")
+	else:
+		anim.play("RESET")

@@ -8,7 +8,7 @@ var player = null
 var can_attack := true
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	if player == null:
 		velocity = Vector2.ZERO
@@ -44,7 +44,7 @@ func _on_detect_area_body_entered(body):
 	player = body
 
 
-func _on_detect_area_body_exited(body):
+func _on_detect_area_body_exited(_body):
 
 	player = null
 
