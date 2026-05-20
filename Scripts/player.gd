@@ -96,7 +96,7 @@ func game_over():
 	print("GAME OVER")
 
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-func _process(delta):
+func _process(_delta):
 
 	if Input.is_action_just_pressed("pick_up"):
 		var rock = get_nearby_rock()
