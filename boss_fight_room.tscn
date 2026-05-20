@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://dhq5ypt3es61a"]
+
+[ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="1_36wwf"]
+[ext_resource type="Script" uid="uid://bl20kfy02i550" path="res://boss_trigger.gd" id="2_xm8fw"]
+[ext_resource type="PackedScene" uid="uid://cn1pjl7nk0gne" path="res://door.tscn" id="3_36wwf"]
+[ext_resource type="Script" uid="uid://c31ctr6crwdyw" path="res://left_door.gd" id="3_p6ybm"]
+[ext_resource type="Script" uid="uid://0xfq2vbpny75" path="res://right_door.gd" id="5_p6ybm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36wwf"]
+size = Vector2(1002.375, 329.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ybm"]
+size = Vector2(31, 47.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm8fw"]
+size = Vector2(26, 46)
+
+[node name="Boss Fight Room" type="TileMapLayer" unique_id=1812198179]
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("1_36wwf")
+
+[node name="Trigger" type="Area2D" parent="." unique_id=1303810127]
+
+[node name="BossTrigger" type="Area2D" parent="." unique_id=73700393]
+script = ExtResource("2_xm8fw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger" unique_id=1546501293]
+position = Vector2(428.8125, 110.5625)
+shape = SubResource("RectangleShape2D_36wwf")
+disabled = true
+
+[node name="LeftDoor" type="StaticBody2D" parent="." unique_id=939354613]
+script = ExtResource("3_p6ybm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor" unique_id=1567210392]
+position = Vector2(16, 437)
+shape = SubResource("RectangleShape2D_p6ybm")
+disabled = true
+
+[node name="Door2" parent="LeftDoor/CollisionShape2D" unique_id=1497045133 instance=ExtResource("3_36wwf")]
+position = Vector2(553, -497)
+
+[node name="RightDoor" type="StaticBody2D" parent="." unique_id=720953425]
+position = Vector2(302, 371)
+script = ExtResource("5_p6ybm")
+
+[node name="Door" parent="RightDoor" unique_id=36776261 instance=ExtResource("3_36wwf")]
+position = Vector2(-608, -429)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor" unique_id=1900641013]
+position = Vector2(364, -268)
+shape = SubResource("RectangleShape2D_xm8fw")
+disabled = true
+
+[connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_body_entered"]

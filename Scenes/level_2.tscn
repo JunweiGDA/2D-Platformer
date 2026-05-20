@@ -111,9 +111,6 @@ position = Vector2(1446, -22)
 move_direction = Vector2(40, 0)
 move_speed = 80.0
 
-[node name="Dummy" parent="Enemies" unique_id=283906619 instance=ExtResource("11_t7v2y")]
-position = Vector2(731, 30)
-
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_vcilj")]
 position = Vector2(1510, 31)
 scene_to_load = ExtResource("8_42uki")
@@ -139,3 +136,6 @@ position = Vector2(328, -69)
 
 [node name="LuckyBlock3" parent="." unique_id=368154901 instance=ExtResource("10_42uki")]
 position = Vector2(171, -64)
+
+[node name="Dummy" parent="." unique_id=283906619 instance=ExtResource("11_t7v2y")]
+position = Vector2(706, 28)

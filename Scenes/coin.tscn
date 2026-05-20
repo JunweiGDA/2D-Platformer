@@ -7,6 +7,8 @@
 radius = 6.0
 
 [node name="coin" type="Area2D" unique_id=525878482]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_jgi06")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=68249316]

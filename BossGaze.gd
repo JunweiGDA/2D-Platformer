@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var max_health := 1
+@export var max_health := 5
 var health := 0
 
 func _ready():

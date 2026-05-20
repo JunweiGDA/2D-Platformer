@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://chs6s1l4xbrfh"]
+[gd_scene format=3 uid="uid://chs6s1l4xbrfh"]
 
 [ext_resource type="Script" uid="uid://cy2iupemn5i43" path="res://Scripts/lucky_block.gd" id="1_kk61j"]
 [ext_resource type="Texture2D" uid="uid://ceqx24xfpi8mq" path="res://Sprites/Characters/character_0014.png" id="2_03src"]
@@ -7,6 +7,8 @@
 radius = 13.038404
 
 [node name="LuckyBlock" type="Area2D" unique_id=1912453121]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_kk61j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=671032206]
