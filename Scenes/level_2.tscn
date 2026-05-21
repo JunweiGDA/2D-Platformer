@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_tm7ih"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="8_25io1"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="9_8gp1p"]
-[ext_resource type="PackedScene" uid="uid://dk2mrk7obiay" path="res://Dummy.tscn" id="10_yybfe"]
+[ext_resource type="PackedScene" uid="uid://dk2mrk7obiay" path="res://Scenes/Dummy.tscn" id="10_yybfe"]
 
 [node name="Main" type="Node2D" unique_id=655947746]
 metadata/_edit_horizontal_guides_ = [661.0]
@@ -112,7 +112,6 @@ move_speed = 80.0
 
 [node name="EndFlag" parent="." unique_id=790452242 instance=ExtResource("7_tm7ih")]
 position = Vector2(1510, 31)
-next_level_path = "res://Scenes/level_3.tscn"
 
 [node name="Spike" parent="." unique_id=1636188053 instance=ExtResource("8_25io1")]
 position = Vector2(919, 6)

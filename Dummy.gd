@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var speed := 50
 @export var damage := 1
@@ -7,19 +7,12 @@ extends CharacterBody2D
 var player = null
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
+	pass
 
-	if player != null:
 
-		var direction = (player.global_position - global_position).normalized()
 
-		velocity = direction * speed
 
-	else:
-
-		velocity = Vector2.ZERO
-
-	move_and_slide()
 
 
 func _on_detect_area_body_entered(body):

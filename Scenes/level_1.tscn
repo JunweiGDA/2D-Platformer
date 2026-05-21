@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="6_evi0p"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_wrinw"]
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="10_chwpn"]
-[ext_resource type="Script" uid="uid://dphpgmlwj6ct6" path="res://Scenes/death_zone.gd" id="11_af3po"]
+[ext_resource type="Script" uid="uid://dphpgmlwj6ct6" path="res://Scripts/death_zone.gd" id="11_af3po"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_chwpn"]
 font_color = Color(1, 0.12156863, 0.039215688, 1)
