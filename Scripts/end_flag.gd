@@ -9,9 +9,8 @@ func _ready():
 
 
 func _on_body_entered(body):
-
-	if body.is_in_group("player"):
-
+	body.is_in_group("player")
 
 
-		var result = get_tree().change_scene_to_file(next_level_path)
+
+	var _result = get_tree().change_scene_to_file(next_level_path)

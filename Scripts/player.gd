@@ -86,10 +86,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func game_over():
-
-
-
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+
 func _process(_delta):
 
 	if held_rock:
@@ -175,9 +174,6 @@ func increase_score(amount : int):
 	play_sound(coin_sfx)
 
 
-
-
-
 func take_damage(amount : float):
 
 	health -= amount
@@ -193,7 +189,6 @@ func take_damage(amount : float):
 		velocity.x = 150
 
 
-
 	if health <= 0:
 		game_over()
 
@@ -204,15 +199,15 @@ func play_sound(sound : AudioStream):
 	audio.stream = sound
 	audio.play()
 
-func _manage_animation():
-	
+	_manage_animation()
+
+func _manage_animation ():
 	if stunned:
-			anim.play("RESET")
-			return
-		
+		anim.play("RESET")
+		return
 	if not is_on_floor():
 		anim.play("jump")
-	elif velocity.x !=0:
+	elif move_input != 0:
 		anim.play("move")
 	else:
 		anim.play("RESET")
