@@ -11,10 +11,6 @@ func _physics_process(_delta):
 	pass
 
 
-
-
-
-
 func _on_detect_area_body_entered(body):
 
 	if body.is_in_group("player"):

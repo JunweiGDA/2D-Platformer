@@ -81,3 +81,6 @@ label_settings = SubResource("LabelSettings_c81s1")
 
 [node name="Dummy2" parent="." unique_id=855400642 instance=ExtResource("12_n4vm5")]
 position = Vector2(1048, -107)
+speed = 50
+damage = 1
+health = 2
