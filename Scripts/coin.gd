@@ -18,13 +18,13 @@ func _physics_process(_delta):
 
 func _on_body_entered(body):
 
-	print("TOUCHED:", body.name)
 
-	print(body.get_groups())
+
+
 
 	if body.is_in_group("player"):
 
-		print("PLAYER GOT COIN")
+
 
 		body.increase_score(1)
 

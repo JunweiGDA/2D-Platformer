@@ -7,7 +7,7 @@
 radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmspm"]
-radius = 23.0
+radius = 37.054016
 
 [node name="Dummy" type="CharacterBody2D" unique_id=283906619]
 collision_layer = 4
@@ -22,7 +22,6 @@ shape = SubResource("CircleShape2D_1324b")
 
 [node name="DetectArea" type="Area2D" parent="." unique_id=614044574]
 collision_layer = 8
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=321092514]
 position = Vector2(-2, 2)

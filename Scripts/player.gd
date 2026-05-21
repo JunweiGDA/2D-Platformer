@@ -33,7 +33,7 @@ var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
 
 func _ready():
-	print("PLAYER SPAWNED")
+
 
 
 	await get_tree().create_timer(0.3).timeout
@@ -80,14 +80,14 @@ func _physics_process(delta):
 
 
 
-	if global_position.y > 5000:
+	if global_position.y > 300:
 		game_over()
 
 	move_and_slide()
 
 func game_over():
 
-	print("GAME OVER")
+
 
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 func _process(_delta):
@@ -106,49 +106,37 @@ func _process(_delta):
 
 			pick_up_rock(rock)
 
-			print("PICKED UP ROCK")
-
 	if Input.is_action_just_pressed("throw"):
 
 		if held_rock:
 
 			throw_rock()
 
+
 func get_nearby_rock():
 
 	var bodies = $PickupArea.get_overlapping_bodies()
 
-	print(bodies)
-
 	for body in bodies:
 
-		print(body.name)
-
-		print(body.get_groups())
-
 		if body.is_in_group("rocks"):
-
-			print("FOUND ROCK")
 
 			return body
 
 	return null
 
+
 func pick_up_rock(rock):
 
 	held_rock = rock
+
+	rock.is_held = true
 
 	rock.freeze = true
 
 	rock.linear_velocity = Vector2.ZERO
 
 	rock.angular_velocity = 0
-
-
-	rock.set_collision_layer(0)
-	rock.set_collision_mask(0)
-
-	rock.global_position = global_position + Vector2(12, -10)
 
 
 func throw_rock():
@@ -160,18 +148,23 @@ func throw_rock():
 
 	held_rock = null
 
+	rock.is_held = false
+
 	rock.freeze = false
 
-
-	rock.set_collision_layer(8)
-	rock.set_collision_mask(3)
+	rock.remove_from_group("rocks")
 
 	var dir = 1 if facing_direction == Vector2.RIGHT else -1
 
-	rock.global_position = global_position + Vector2(20 * dir, -10)
+	rock.global_position = global_position + Vector2(80 * dir, -30)
 
-	rock.linear_velocity = Vector2(450 * dir, -150)
+	rock.apply_impulse(Vector2(79 * dir, -30))
 
+	await get_tree().create_timer(1.0).timeout
+
+	if is_instance_valid(rock):
+
+		rock.add_to_group("rocks")
 
 func increase_score(amount : int):
 
@@ -181,7 +174,7 @@ func increase_score(amount : int):
 
 	play_sound(coin_sfx)
 
-	print("COIN PICKED")
+
 
 
 
@@ -199,7 +192,7 @@ func take_damage(amount : float):
 	else:
 		velocity.x = 150
 
-	print("PLAYER HIT")
+
 
 	if health <= 0:
 		game_over()

@@ -52,7 +52,7 @@ tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAACAAMAAAAAAAAAAAACAAM
 tile_set = ExtResource("3_diio2")
 
 [node name="player" parent="." unique_id=754337358 groups=["Player"] instance=ExtResource("4_v1bqs")]
-position = Vector2(555, -47)
+position = Vector2(630, 31)
 
 [node name="Coins" type="Node" parent="." unique_id=1590213818]
 
@@ -137,6 +137,6 @@ position = Vector2(328, -69)
 position = Vector2(171, -64)
 
 [node name="Dummy" parent="." unique_id=283906619 instance=ExtResource("10_yybfe")]
-position = Vector2(701, 28)
+position = Vector2(715, 30)
 
 [connection signal="body_entered" from="LuckyBlock" to="Background" method="_on_lucky_block_body_entered"]

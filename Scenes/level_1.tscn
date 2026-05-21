@@ -73,6 +73,7 @@ offset_left = 324.0
 offset_top = 1.0
 offset_right = 649.0
 offset_bottom = 34.0
+theme_override_font_sizes/font_size = 64
 text = "                              Double Jump cost 3 coins"
 label_settings = SubResource("LabelSettings_chwpn")
 

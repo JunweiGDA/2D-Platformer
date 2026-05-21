@@ -32,7 +32,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 
-	print("ENEMY TOUCH:", body.name)
+
 
 	if body.is_in_group("player"):
 
