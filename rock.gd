@@ -3,17 +3,10 @@ extends RigidBody2D
 @onready var hitbox: Area2D = $Hitbox
 
 var is_held := false
+var can_pickup := true
 
 
 func _ready():
-
-	mass = 0.1
-
-	gravity_scale = 1.5
-
-	linear_damp = 0
-
-	angular_damp = 0
 
 	hitbox.body_entered.connect(_on_hitbox_body_entered)
 
@@ -44,4 +37,4 @@ func _on_hitbox_body_entered(body):
 
 			body.take_damage(1)
 
-		queue_free()
+		call_deferred("queue_free")

@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="7_j77fg"]
 [ext_resource type="PackedScene" uid="uid://cj4lsveadqtei" path="res://boss.tscn" id="9_l4wr6"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_nbwsh"]
-[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://rock.tscn" id="10_5rvg2"]
-[ext_resource type="Script" uid="uid://b43lvdhtxf4hg" path="res://Scripts/rock_spawner.gd" id="12_c81s1"]
-[ext_resource type="PackedScene" uid="uid://dk2mrk7obiay" path="res://Scenes/Dummy.tscn" id="12_n4vm5"]
+[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://Rock.tscn" id="10_5rvg2"]
+[ext_resource type="Script" uid="uid://wbgpn0ce80fq" path="res://Scenes/rock_spawner.gd" id="12_c81s1"]
+[ext_resource type="PackedScene" uid="uid://h5wa37djk0ye" path="res://Dummy.tscn" id="12_n4vm5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c81s1"]
 outline_color = Color(1, 0.10980392, 0.03529412, 1)
@@ -66,9 +66,6 @@ player = NodePath("../../Player")
 
 [node name="Dummy" parent="." unique_id=283906619 instance=ExtResource("12_n4vm5")]
 position = Vector2(2515, 3)
-speed = 50
-damage = 1
-health = 2
 
 [node name="Label" type="Label" parent="." unique_id=1809401545]
 offset_left = 1110.0
@@ -81,6 +78,3 @@ label_settings = SubResource("LabelSettings_c81s1")
 
 [node name="Dummy2" parent="." unique_id=855400642 instance=ExtResource("12_n4vm5")]
 position = Vector2(1048, -107)
-speed = 50
-damage = 1
-health = 2

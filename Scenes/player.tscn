@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b41tt5wf0debk" path="res://Sprites/Characters/Level 2 Boss (WIP)2.png" id="5_gymyn"]
 [ext_resource type="Texture2D" uid="uid://cu11uyw2ugvgc" path="res://Sprites/Characters/Level 2 Boss (WIP)3.png" id="6_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://hrjcxt04771d" path="res://Sprites/Characters/Level 2 Boss (WIP)4.png" id="7_ukyrk"]
-[ext_resource type="Script" uid="uid://dpkk8y13meoqw" path="res://Scripts/pickup_area.gd" id="10_tx1dd"]
+[ext_resource type="Script" path="res://Scenes/pickup_area.gd" id="10_tx1dd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
 radius = 6.0
