@@ -383,12 +383,6 @@ func game_over():
 	low_health_music.stop()
 
 	GameManager.restart_level()
-	if stunned:
-
-		anim.play("RESET")
-
-		return
-
 	if not is_on_floor():
 
 		anim.play("jump")

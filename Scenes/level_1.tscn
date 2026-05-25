@@ -73,14 +73,8 @@ position = Vector2(-7, -20)
 [node name="coin" parent="Coins" unique_id=1949770848 instance=ExtResource("5_6444e")]
 position = Vector2(67, 18)
 
-[node name="coin2" parent="Coins" unique_id=174249646 instance=ExtResource("5_6444e")]
-position = Vector2(181, -10)
-
 [node name="coin3" parent="Coins" unique_id=1624139483 instance=ExtResource("5_6444e")]
 position = Vector2(407, 6)
-
-[node name="coin4" parent="Coins" unique_id=1388314330 instance=ExtResource("5_6444e")]
-position = Vector2(291, -10)
 
 [node name="Enemies" type="Node" parent="." unique_id=513540514]
 
@@ -131,4 +125,13 @@ offset_right = 587.0
 offset_bottom = -107.0
 theme_override_font_sizes/font_size = 64
 text = "                              Double Jump cost 3 coins"
+label_settings = SubResource("LabelSettings_chwpn")
+
+[node name="Label2" type="Label" parent="." unique_id=130479358]
+offset_left = 338.0
+offset_top = -224.0
+offset_right = 799.0
+offset_bottom = -107.0
+theme_override_font_sizes/font_size = 64
+text = "                              The face up luckyblock give you 3 coins"
 label_settings = SubResource("LabelSettings_chwpn")

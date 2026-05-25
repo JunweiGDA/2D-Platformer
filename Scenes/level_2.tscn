@@ -139,12 +139,12 @@ position = Vector2(171, -64)
 position = Vector2(723, 30)
 
 [node name="Label" type="Label" parent="." unique_id=1874626816]
-offset_left = 437.0
-offset_top = -130.0
-offset_right = 834.0
-offset_bottom = -97.0
+offset_left = 100.0
+offset_top = -124.0
+offset_right = 587.0
+offset_bottom = -91.0
 theme_override_font_sizes/font_size = 64
-text = "                              Use Double Jump to Dodge Dummy"
+text = "                              Use Double Jump to Dodge Dummy and enemy"
 label_settings = SubResource("LabelSettings_42uki")
 
 [connection signal="body_entered" from="LuckyBlock" to="Background" method="_on_lucky_block_body_entered"]

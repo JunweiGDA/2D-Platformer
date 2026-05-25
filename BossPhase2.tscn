@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ba3gaak5rnowe"]
 
 [ext_resource type="Script" uid="uid://bqwet1iwf2mvh" path="res://boss_phase_2.gd" id="1_b26xl"]
+[ext_resource type="PackedScene" uid="uid://ba43y0200ugyr" path="res://Final portal.tscn" id="2_3g2k7"]
 [ext_resource type="Texture2D" uid="uid://bek5f8ldrbstk" path="res://Boss transformation.png" id="2_6hi38"]
 [ext_resource type="AudioStream" uid="uid://cnpii4vjbjift" path="res://Audio/freesound_community-evil-laugh-89423.mp3" id="3_ebw3o"]
-[ext_resource type="AudioStream" uid="uid://3g7oe78n47de" path="res://Audio/freesound_community-peekaboo-i-see-you-104504.mp3" id="4_3g2k7"]
+[ext_resource type="AudioStream" uid="uid://dvycdh1sdrehn" path="res://Audio/freesound_community-peekaboo-i-see-you-104504.mp3" id="4_3g2k7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xxrv"]
 radius = 24.0
@@ -14,6 +15,7 @@ radius = 125.48307
 [node name="Boss" type="CharacterBody2D" unique_id=1051107994 groups=["boss"]]
 collision_layer = 4
 script = ExtResource("1_b26xl")
+portal_scene = ExtResource("2_3g2k7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612632981]
 position = Vector2(-31, 3)

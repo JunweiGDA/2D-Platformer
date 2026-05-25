@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ba43y0200ugyr"]
+
+[ext_resource type="Script" uid="uid://bvt8jbk6ikd0n" path="res://final_portal.gd" id="1_bgx2p"]
+[ext_resource type="Texture2D" uid="uid://dpjxsgq8pmjuf" path="res://Portal.png" id="2_aoxsd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrinw"]
+radius = 50.01
+
+[node name="Final portal" type="Area2D" unique_id=1037504763]
+collision_layer = 8
+script = ExtResource("1_bgx2p")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=836987681]
+position = Vector2(136.5, -110.5)
+scale = Vector2(4.1093745, 4.171875)
+texture = ExtResource("2_aoxsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381195856]
+position = Vector2(148, -107)
+shape = SubResource("CircleShape2D_wrinw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
