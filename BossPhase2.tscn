@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ba3gaak5rnowe"]
+
+[ext_resource type="Script" uid="uid://bqwet1iwf2mvh" path="res://boss_phase_2.gd" id="1_b26xl"]
+[ext_resource type="Texture2D" uid="uid://bek5f8ldrbstk" path="res://Boss transformation.png" id="2_6hi38"]
+[ext_resource type="AudioStream" uid="uid://cnpii4vjbjift" path="res://Audio/freesound_community-evil-laugh-89423.mp3" id="3_ebw3o"]
+[ext_resource type="AudioStream" uid="uid://3g7oe78n47de" path="res://Audio/freesound_community-peekaboo-i-see-you-104504.mp3" id="4_3g2k7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xxrv"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_skx2t"]
+radius = 125.48307
+
+[node name="Boss" type="CharacterBody2D" unique_id=1051107994 groups=["boss"]]
+collision_layer = 4
+script = ExtResource("1_b26xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612632981]
+position = Vector2(-31, 3)
+shape = SubResource("CircleShape2D_6xxrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1680857610]
+texture = ExtResource("2_6hi38")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=133434956]
+position = Vector2(155, -16)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=610143924]
+position = Vector2(-186, 21)
+shape = SubResource("CircleShape2D_skx2t")
+
+[node name="LaughAudio" type="AudioStreamPlayer2D" parent="." unique_id=1612592090]
+stream = ExtResource("3_ebw3o")
+
+[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="." unique_id=1373519580]
+stream = ExtResource("4_3g2k7")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]

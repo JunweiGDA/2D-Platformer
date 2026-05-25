@@ -21,7 +21,7 @@ func _on_body_entered(body):
 
 	var roll = rng.randi_range(1, 100)
 
-	if roll <= 5:
+	if roll <= 0.1:
 
 		print("BAD LUCK")
 

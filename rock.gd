@@ -5,11 +5,21 @@ extends RigidBody2D
 var is_held := false
 var can_pickup := true
 
-
 func _ready():
+
+	mass = 0.1
+	gravity_scale = 1.5
+
+	linear_damp = 0
+	angular_damp = 0
 
 	hitbox.body_entered.connect(_on_hitbox_body_entered)
 
+	# DELETE ROCK AFTER 50 SECONDS
+	await get_tree().create_timer(50).timeout
+
+	if is_instance_valid(self):
+		queue_free()
 
 func _physics_process(_delta):
 
@@ -18,13 +28,11 @@ func _physics_process(_delta):
 		freeze = true
 
 		linear_velocity = Vector2.ZERO
-
 		angular_velocity = 0
 
 	else:
 
 		freeze = false
-
 
 func _on_hitbox_body_entered(body):
 
@@ -37,4 +45,4 @@ func _on_hitbox_body_entered(body):
 
 			body.take_damage(1)
 
-		call_deferred("queue_free")
+		queue_free()

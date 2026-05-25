@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cxwek15sdtokg"]
+
+[ext_resource type="Script" uid="uid://biumke7o0gjgm" path="res://eye_bullet.gd" id="1_q6mtp"]
+[ext_resource type="Texture2D" uid="uid://vc68ypbs0crn" path="res://Boss skill.png" id="2_tck2e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6mtp"]
+radius = 143.34923
+
+[node name="EyeBullet" type="Area2D" unique_id=2106608089]
+script = ExtResource("1_q6mtp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=819218942]
+position = Vector2(-108.25, 84.5)
+scale = Vector2(0.31269842, 0.324)
+texture = ExtResource("2_tck2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=743712216]
+position = Vector2(-110, 85)
+shape = SubResource("CircleShape2D_q6mtp")
+
+[node name="Timer" type="Timer" parent="." unique_id=1242811390]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

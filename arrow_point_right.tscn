@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://1m7hlh640epm"]
+
+[ext_resource type="Texture2D" uid="uid://cogeklpng8faf" path="res://arrow point right.png" id="1_pxg85"]
+
+[node name="arrow point right" type="Area2D" unique_id=341013931]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1645620491]
+position = Vector2(-129.5, 129.5)
+scale = Vector2(0.13666667, 0.13666669)
+texture = ExtResource("1_pxg85")

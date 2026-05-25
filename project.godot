@@ -15,13 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="2D Platformer"
-run/main_scene="uid://ds75lvm8eqf4l"
+run/main_scene="uid://ba2bdev3y1o0i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerStats="*res://Scripts/player_stats.gd"
+GameManager="*uid://ko6wcjhe2riy"
 
 [input]
 

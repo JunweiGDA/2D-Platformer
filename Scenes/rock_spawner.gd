@@ -5,16 +5,21 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 
+@export var max_rocks := 15
+
 func _ready():
 
 	rng.randomize()
 
+	spawn_loop()
+
+func spawn_loop():
+
 	while true:
 
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(10000).timeout
 
 		spawn_rock()
-
 
 func spawn_rock():
 
@@ -24,17 +29,25 @@ func spawn_rock():
 	if player == null:
 		return
 
+	# Count rocks
+	var rock_count := 0
+
+	for rock in get_tree().get_nodes_in_group("rocks"):
+
+		rock_count += 1
+
+	# Stop if too many rocks
+	if rock_count >= max_rocks:
+		return
+
 	var rock = rock_scene.instantiate()
 
 	get_tree().current_scene.add_child(rock)
 
-	# Spawn CLOSE to player
+	# Spawn near player
 	var offset = Vector2(
-
-		rng.randi_range(-120, 120),
-
-		-120
-
+		rng.randi_range(-200, 200),
+		-150
 	)
 
 	rock.global_position = player.global_position + offset

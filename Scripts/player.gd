@@ -8,24 +8,26 @@ signal OnUpdateScore(score : int)
 # PLAYER STATS
 # =========================
 
-@export var move_speed : float = 100
-@export var acceleration : float = 50
-@export var braking : float = 20
-@export var gravity : float = 500
-@export var jump_force : float = 200
-@export var max_jumps : int = 2
-@export var double_jump_cost : int = 3
-@export var health : float = 3
+@export var move_speed := 100.0
+@export var acceleration := 50.0
+@export var braking := 20.0
+@export var gravity := 500.0
+@export var jump_force := 200.0
 
-var jump_count : int = 0
-var move_input : float
+@export var max_jumps := 2
+@export var double_jump_cost := 3
+
+@export var health := 3.0
+
+var jump_count := 0
+var move_input := 0.0
 
 # =========================
 # ROCK SYSTEM
 # =========================
 
 var held_rock = null
-var facing_direction := Vector2.RIGHT
+var facing_right := true
 var can_pickup := true
 
 # =========================
@@ -40,22 +42,16 @@ var stunned := false
 
 @onready var sprite : Sprite2D = $Sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
-@onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 
+@onready var audio : AudioStreamPlayer = $AudioStreamPlayer
+@onready var heartbeat_audio : AudioStreamPlayer = $HeartbeatAudio
+@onready var low_health_music : AudioStreamPlayer = $LowHealthMusic
 # =========================
 # AUDIO
 # =========================
 
-var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
-var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
-
-# =========================
-# READY
-# =========================
-
-func _ready():
-
-	await get_tree().create_timer(0.3).timeout
+var take_damage_sfx = preload("res://Audio/take_damage.wav")
+var coin_sfx = preload("res://Audio/coin.wav")
 
 # =========================
 # PHYSICS
@@ -63,21 +59,77 @@ func _ready():
 
 func _physics_process(delta):
 
-	# Gravity
+	# =========================
+	# STUNNED
+	# =========================
+
+	if stunned:
+
+		velocity = Vector2.ZERO
+
+		handle_animation()
+
+		move_and_slide()
+
+		return
+
+	# =========================
+	# NORMAL PLAYER
+	# =========================
+
+	handle_gravity(delta)
+
+	handle_movement(delta)
+
+	handle_jump()
+
+	handle_animation()
+
+	move_and_slide()
+
+	check_game_over()
+
+# =========================
+# PROCESS
+# =========================
+
+func _process(_delta):
+
+	handle_held_rock()
+
+	handle_pickup()
+
+	handle_throw()
+
+# =========================
+# MOVEMENT
+# =========================
+
+func handle_gravity(delta):
+
 	if not is_on_floor():
+
 		velocity.y += gravity * delta
 
-	# Movement input
-	move_input = Input.get_axis("move_left", "move_right")
+	else:
 
-	# Facing direction + flip
+		jump_count = 0
+
+func handle_movement(delta):
+
+	move_input = Input.get_axis(
+		"move_left",
+		"move_right"
+	)
+
+	# Flip player
 	if move_input != 0:
 
-		facing_direction = Vector2.RIGHT if move_input > 0 else Vector2.LEFT
+		facing_right = move_input > 0
 
 		sprite.flip_h = move_input < 0
 
-	# Horizontal movement
+	# Move
 	if move_input != 0:
 
 		velocity.x = lerp(
@@ -94,74 +146,77 @@ func _physics_process(delta):
 			braking * delta
 		)
 
-	# Jump
-	if Input.is_action_just_pressed("jump"):
+# =========================
+# JUMP
+# =========================
 
-		# First jump
-		if is_on_floor():
+func handle_jump():
+
+	if not Input.is_action_just_pressed("jump"):
+		return
+
+	# First jump
+	if is_on_floor():
+
+		velocity.y = -jump_force
+
+		jump_count = 1
+
+		return
+
+	# Double jump
+	if jump_count < max_jumps:
+
+		if PlayerStats.score >= double_jump_cost:
+
+			PlayerStats.score -= double_jump_cost
+
+			OnUpdateScore.emit(
+				PlayerStats.score
+			)
 
 			velocity.y = -jump_force
 
-			jump_count = 1
-
-		# Double jump
-		elif jump_count < max_jumps:
-
-			if PlayerStats.score >= double_jump_cost:
-
-				PlayerStats.score -= double_jump_cost
-
-				OnUpdateScore.emit(PlayerStats.score)
-
-				velocity.y = -jump_force
-
-				jump_count += 1
-
-	# Reset jumps
-	if is_on_floor():
-		jump_count = 0
-
-	# Game over
-	if global_position.y > 300:
-		game_over()
-
-	# Animations
-	_manage_animation()
-
-	move_and_slide()
+			jump_count += 1
 
 # =========================
-# PROCESS
+# ROCK SYSTEM
 # =========================
 
-func _process(_delta):
+func handle_held_rock():
 
-	# Hold rock
+	if held_rock == null:
+		return
+
+	var dir = 1 if facing_right else -1
+
+	held_rock.global_position = (
+		global_position
+		+ Vector2(16 * dir, -10)
+	)
+
+func handle_pickup():
+
+	if not Input.is_action_just_pressed("pick_up"):
+		return
+
+	if not can_pickup:
+		return
+
+	var rock = get_nearby_rock()
+
+	if rock:
+
+		pick_up_rock(rock)
+
+func handle_throw():
+
+	if not Input.is_action_just_pressed("throw"):
+		return
+
 	if held_rock:
 
-		var dir = 1 if facing_direction == Vector2.RIGHT else -1
-
-		held_rock.global_position = global_position + Vector2(16 * dir, -10)
-
-	# Pickup
-	if Input.is_action_just_pressed("pick_up") and can_pickup:
-
-		var rock = get_nearby_rock()
-
-		if rock:
-
-			pick_up_rock(rock)
-
-	# Throw
-	if Input.is_action_just_pressed("throw"):
-
-		if held_rock:
-
-			throw_rock()
-
-# =========================
-# FIND ROCK
-# =========================
+		throw_rock()
 
 func get_nearby_rock():
 
@@ -177,10 +232,6 @@ func get_nearby_rock():
 
 	return null
 
-# =========================
-# PICKUP ROCK
-# =========================
-
 func pick_up_rock(rock):
 
 	held_rock = rock
@@ -192,10 +243,6 @@ func pick_up_rock(rock):
 	rock.linear_velocity = Vector2.ZERO
 
 	rock.angular_velocity = 0
-
-# =========================
-# THROW ROCK
-# =========================
 
 func throw_rock():
 
@@ -212,29 +259,19 @@ func throw_rock():
 
 	rock.can_pickup = false
 
-	var dir = 1 if facing_direction == Vector2.RIGHT else -1
+	rock.remove_from_group("rocks")
 
-	rock.global_position = global_position + Vector2(160 * dir, -60)
+	var dir = 1 if facing_right else -1
 
-	rock.linear_velocity = Vector2(350 * dir, -180)
+	rock.global_position = (
+		global_position
+		+ Vector2(160 * dir, -60)
+	)
 
-	await get_tree().create_timer(1.0).timeout
-
-	if is_instance_valid(rock):
-
-		rock.can_pickup = true
-
-# =========================
-# SCORE
-# =========================
-
-func increase_score(amount : int):
-
-	PlayerStats.score += amount
-
-	OnUpdateScore.emit(PlayerStats.score)
-
-	play_sound(coin_sfx)
+	rock.linear_velocity = Vector2(
+		530 * dir,
+		-140
+	)
 
 # =========================
 # DAMAGE
@@ -248,29 +285,58 @@ func take_damage(amount : float):
 
 	play_sound(take_damage_sfx)
 
-	# Knockback
+	# =========================
+	# LOW HP HORROR
+	# =========================
+
+	if health <= 1:
+
+		# HEARTBEAT
+		if not heartbeat_audio.playing:
+
+			heartbeat_audio.play()
+
+		# SAD PIANO
+		if not low_health_music.playing:
+
+			low_health_music.play()
+
+	# =========================
+	# KNOCKBACK
+	# =========================
+
 	if velocity.x >= 0:
+
 		velocity.x = -150
+
 	else:
+
 		velocity.x = 150
 
-	# Death
+	# =========================
+	# DEATH
+	# =========================
+
 	if health <= 0:
+
 		game_over()
-
 # =========================
-# GAME OVER
+# SCORE
 # =========================
 
-func game_over():
+func increase_score(amount : int):
 
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	PlayerStats.score += amount
+
+	OnUpdateScore.emit(PlayerStats.score)
+
+	play_sound(coin_sfx)
 
 # =========================
 # SOUND
 # =========================
 
-func play_sound(sound : AudioStream):
+func play_sound(sound):
 
 	audio.stream = sound
 
@@ -280,8 +346,43 @@ func play_sound(sound : AudioStream):
 # ANIMATION
 # =========================
 
-func _manage_animation():
+func handle_animation():
 
+	if stunned:
+
+		anim.play("RESET")
+
+		return
+
+	if not is_on_floor():
+
+		anim.play("jump")
+
+	elif move_input != 0:
+
+		anim.play("move")
+
+	else:
+
+		anim.play("RESET")
+
+# =========================
+# GAME OVER
+# =========================
+
+func check_game_over():
+
+	if global_position.y > 300:
+
+		game_over()
+
+func game_over():
+
+	heartbeat_audio.stop()
+
+	low_health_music.stop()
+
+	GameManager.restart_level()
 	if stunned:
 
 		anim.play("RESET")

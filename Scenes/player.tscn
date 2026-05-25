@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b41tt5wf0debk" path="res://Sprites/Characters/Level 2 Boss (WIP)2.png" id="5_gymyn"]
 [ext_resource type="Texture2D" uid="uid://cu11uyw2ugvgc" path="res://Sprites/Characters/Level 2 Boss (WIP)3.png" id="6_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://hrjcxt04771d" path="res://Sprites/Characters/Level 2 Boss (WIP)4.png" id="7_ukyrk"]
-[ext_resource type="Script" path="res://Scenes/pickup_area.gd" id="10_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://cvdandv1okaji" path="res://Audio/soundreality-heart-beat-137135.mp3" id="10_gymyn"]
+[ext_resource type="AudioStream" uid="uid://3eosq3u380am" path="res://Audio/ondrosik-short-piano-jingle-262586.mp3" id="11_pu2lt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
 radius = 6.0
@@ -157,11 +158,16 @@ label_settings = SubResource("LabelSettings_vgqql")
 [node name="PickupArea" type="Area2D" parent="." unique_id=510585733]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource("10_tx1dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=58660612]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_f1ek2")
+
+[node name="HeartbeatAudio" type="AudioStreamPlayer" parent="." unique_id=830790072]
+stream = ExtResource("10_gymyn")
+
+[node name="LowHealthMusic" type="AudioStreamPlayer" parent="." unique_id=38867790]
+stream = ExtResource("11_pu2lt")
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
