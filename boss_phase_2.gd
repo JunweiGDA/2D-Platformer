@@ -53,7 +53,7 @@ func skill_loop():
 	# THIRD ATTACK (MISS)
 	# =========================
 
-	await get_tree().create_timer(20.0).timeout
+	await get_tree().create_timer(10.0).timeout
 
 	if player:
 
@@ -66,7 +66,7 @@ func skill_loop():
 
 	while true:
 
-		await get_tree().create_timer(10.0).timeout
+		await get_tree().create_timer(13.0).timeout
 
 		if player:
 
