@@ -285,3 +285,6 @@ position = Vector2(5286, -278)
 
 [node name="LuckyBlock21" parent="." unique_id=1259914030 instance=ExtResource("6_jtv8s")]
 position = Vector2(5143, -161)
+
+[node name="arrow point right8" parent="." unique_id=1259545696 instance=ExtResource("13_n4vm5")]
+position = Vector2(5603, -420)
