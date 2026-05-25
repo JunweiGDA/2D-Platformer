@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chs6s1l4xbrfh" path="res://Scenes/lucky_block.tscn" id="6_jtv8s"]
 [ext_resource type="PackedScene" uid="uid://cj4lsveadqtei" path="res://boss.tscn" id="9_l4wr6"]
 [ext_resource type="PackedScene" uid="uid://clk4jwqmchpsk" path="res://Scenes/spike.tscn" id="9_nbwsh"]
-[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://Rock.tscn" id="10_5rvg2"]
+[ext_resource type="PackedScene" uid="uid://sm8kmn5i04mo" path="res://rock.tscn" id="10_5rvg2"]
 [ext_resource type="Script" uid="uid://wbgpn0ce80fq" path="res://Scenes/rock_spawner.gd" id="12_c81s1"]
 [ext_resource type="PackedScene" uid="uid://sevo8d4yh1n4" path="res://lucky_block_spawn_rock.tscn" id="12_fxnjf"]
 [ext_resource type="PackedScene" uid="uid://h5wa37djk0ye" path="res://Dummy.tscn" id="12_n4vm5"]
