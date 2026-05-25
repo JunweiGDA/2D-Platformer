@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var eye_bullet_scene : PackedScene
 @export var player : Node2D
 @export var phase2_scene : PackedScene
+@onready var boss_text = $"../CanvasLayer/BossText"
+
 var health := 0
 
 # Boss phases
@@ -28,10 +30,10 @@ func _ready():
 
 func phase_loop():
 
-	# Weak for first 10 seconds
-	await get_tree().create_timer(10.0).timeout
+	# Weak for first 17 seconds
+	await get_tree().create_timer(17.0).timeout
 
-	phase = 2
+	phase = 1
 
 	bullet_speed = 260
 
@@ -40,7 +42,7 @@ func phase_loop():
 	# Much stronger after 20 seconds
 	await get_tree().create_timer(10.0).timeout
 
-	phase = 3
+	phase = 2
 
 	bullet_speed = 380
 
@@ -128,7 +130,26 @@ func die():
 
 	print("TRANSFORMING...")
 
+	# =========================
+	# HEAL PLAYER
+	# =========================
+
+	if player != null:
+
+		player.health = 3
+
+		player.OnUpdateHealth.emit(
+			int(player.health)
+		)
+
+		print("Player healed!")
+
+	# Small delay
 	await get_tree().create_timer(1.0).timeout
+
+	# =========================
+	# SPAWN PHASE 2
+	# =========================
 
 	if phase2_scene != null:
 

@@ -16,7 +16,7 @@ func _ready():
 	hitbox.body_entered.connect(_on_hitbox_body_entered)
 
 	# DELETE ROCK AFTER 50 SECONDS
-	await get_tree().create_timer(50).timeout
+	await get_tree().create_timer(100000000000000).timeout
 
 	if is_instance_valid(self):
 		queue_free()

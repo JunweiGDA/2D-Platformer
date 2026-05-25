@@ -24,18 +24,35 @@ func _ready():
 
 func skill_loop():
 
-	while true:
+	# =========================
+	# FIRST ATTACK
+	# =========================
 
-		await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(10.0).timeout
 
-		if player == null:
-			continue
+	if player:
 
 		knife_attack()
 
-# =========================
-# KNIFE ATTACK
-# =========================
+	# =========================
+	# SECOND ATTACK
+	# =========================
+
+	await get_tree().create_timer(15.0).timeout
+
+	if player:
+
+		knife_attack()
+
+	# =========================
+	# FINAL ATTACK
+	# =========================
+
+	await get_tree().create_timer(20.0).timeout
+
+	if player:
+
+		knife_attack()
 
 func knife_attack():
 
