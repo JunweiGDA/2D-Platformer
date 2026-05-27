@@ -7,7 +7,7 @@
 radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmspm"]
-radius = 29.0
+radius = 21.023796
 
 [node name="Dummy" type="CharacterBody2D" unique_id=283906619]
 collision_layer = 4

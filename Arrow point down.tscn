@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d3lqkkknoo37j"]
+
+[ext_resource type="Texture2D" uid="uid://chcvjwfl41qe3" path="res://Arrow point down.png" id="1_ignjb"]
+
+[node name="Area2D" type="Area2D" unique_id=1206343959]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=387554679]
+position = Vector2(-99.75, 98.25)
+scale = Vector2(0.11333334, 0.12666667)
+texture = ExtResource("1_ignjb")

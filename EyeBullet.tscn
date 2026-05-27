@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vc68ypbs0crn" path="res://Boss skill.png" id="2_tck2e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6mtp"]
-radius = 143.34923
+radius = 84.00595
 
 [node name="EyeBullet" type="Area2D" unique_id=2106608089]
 script = ExtResource("1_q6mtp")

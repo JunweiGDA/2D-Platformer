@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var voice_audio = $VoiceAudio
 @export var portal_scene : PackedScene
 @onready var boss_text = get_tree().current_scene.get_node("CanvasLayer/BossText")
+@onready var boss_hp_label = get_tree().current_scene.get_node("CanvasLayer/BossHP")
 var missed_final_attack := false
 var health := 0
 var player = null
@@ -22,7 +23,7 @@ func _ready():
 	print("PHASE 2 START!")
 
 	skill_loop()
-
+	boss_hp_label.text = "FINAL FORM HP: " + str(health)
 # =========================
 # SKILL LOOP
 # =========================
@@ -43,7 +44,7 @@ func skill_loop():
 	# SECOND ATTACK
 	# =========================
 
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(14.5).timeout
 
 	if player:
 
@@ -151,12 +152,13 @@ func take_damage(amount):
 
 	health -= amount
 
+	boss_hp_label.text = "FINAL FORM HP: " + str(health)
+
 	print("PHASE 2 HP:", health)
 
 	if health <= 0:
 
 		die()
-
 # =========================
 # DEATH
 # =========================

@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var boss_text = get_tree().current_scene.get_node("CanvasLayer/BossText")
 @onready var dark_screen = %DarkScreen
+@onready var boss_hp_label = get_tree().current_scene.get_node("CanvasLayer/BossHP")
 
 var health := 0
 
@@ -35,7 +36,7 @@ func _ready():
 	attack_loop()
 
 	phase_loop()
-
+	boss_hp_label.text = "BOSS HP: " + str(health)
 # =========================
 # PHASE SYSTEM
 # =========================
@@ -43,7 +44,7 @@ func _ready():
 func phase_loop():
 
 	# Stronger after 17 sec
-	await get_tree().create_timer(17.0).timeout
+	await get_tree().create_timer(23.0).timeout
 
 	phase = 1
 	bullet_speed = 260
@@ -54,7 +55,7 @@ func phase_loop():
 	await get_tree().create_timer(10.0).timeout
 
 	phase = 2
-	bullet_speed = 380
+	bullet_speed = 200
 
 	print("Boss enraged!")
 
@@ -128,12 +129,13 @@ func take_damage(amount : int):
 
 	health -= amount
 
+	boss_hp_label.text = "BOSS HP: " + str(health)
+
 	print("Boss HP:", health)
 
 	if health <= 0:
 
 		die()
-
 # =========================
 # DEATH / TRANSFORMATION
 # =========================
