@@ -446,10 +446,14 @@ label_settings = SubResource("LabelSettings_xjeco")
 horizontal_alignment = 1
 
 [node name="You need to kill the boss to win" type="Label" parent="CanvasLayer" unique_id=680931874]
-offset_left = 831.0
-offset_top = 70.0
-offset_right = 1132.0
-offset_bottom = 98.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -643.0
+offset_top = 236.0
+offset_right = -332.0
+offset_bottom = 355.0
+grow_horizontal = 0
 text = "You need to kill the boss to win"
 label_settings = SubResource("LabelSettings_j77fg")
 horizontal_alignment = 1
@@ -553,3 +557,18 @@ position = Vector2(5581, -288)
 
 [node name="Area2D24" parent="." unique_id=1304548319 instance=ExtResource("15_xjeco")]
 position = Vector2(5545, -219)
+
+[node name="Area2D25" parent="." unique_id=1225283604 instance=ExtResource("15_xjeco")]
+position = Vector2(5208, -201)
+
+[node name="Area2D26" parent="." unique_id=980688936 instance=ExtResource("15_xjeco")]
+position = Vector2(5243, -292)
+
+[node name="Area2D27" parent="." unique_id=1272878075 instance=ExtResource("15_xjeco")]
+position = Vector2(5278, -312)
+
+[node name="Area2D28" parent="." unique_id=1204688747 instance=ExtResource("15_xjeco")]
+position = Vector2(5324, -341)
+
+[node name="Area2D29" parent="." unique_id=669135397 instance=ExtResource("15_xjeco")]
+position = Vector2(5386, -414)
